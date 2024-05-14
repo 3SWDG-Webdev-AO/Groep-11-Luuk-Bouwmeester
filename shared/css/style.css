@@ -1,0 +1,42 @@
+/* font imports */
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big&display=swap');
+
+/* global styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(250, 105, 40);
+}
+
+/* header logo styles */
+section.header_logo > img {
+    width: 50%;
+}
+
+/* header navigatie styles */
+nav.header_navigatie {
+    display: flex;
+    margin-right: 10px;
+}
+
+nav.header_navigatie > a {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    padding: 1vh 1vw;
+}
+
+nav.header_navigatie > a:link, a:visited, a:active {
+    color: whitesmoke;
+}
+
+nav.header_navigatie > a:hover {
+    color: rgb(80, 80, 80);
+}

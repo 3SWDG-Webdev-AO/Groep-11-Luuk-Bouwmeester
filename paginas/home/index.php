@@ -7,7 +7,7 @@
     <meta name="author" content="L. Bouwmeester">
     <meta name="keywords" content="pixel, playground, home">
     <title>Pixel Playground - Home</title>
-    <link rel="stylesheet" type="text/css" href"../../shared/css/style.css/">
+    <link rel="stylesheet" type="text/css" href="../../shared/css/style.css">
     <script src="js/main.js" defer></script>
 </head>
 
