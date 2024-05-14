@@ -1,5 +1,6 @@
 /* font imports */
 @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 /* global styles */
 * {
@@ -39,4 +40,33 @@ nav.header_navigatie > a:link, a:visited, a:active {
 
 nav.header_navigatie > a:hover {
     color: rgb(80, 80, 80);
+}
+
+/* footer styles */
+footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(250, 105, 40);
+    padding: 10px;
+    color: white;
+}
+
+section.footer_main > h1 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+section.footer_main > p {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+}
+
+#footer_contact {
+    color: rgb(221, 212, 212);
+}
+
+#footer_copyright {
+    color: rgb(0, 0, 0);
 }
