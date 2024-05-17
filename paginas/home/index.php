@@ -28,11 +28,12 @@
                 echo '<img src="' . $afbeelding . '" alt="Slideshow van games">';
             
                 echo '<section class="text_overlay">';
-                echo '<h1>Speel je <span style="color: orange;">favoriete</span> games, nu in je web browser!</h1>';
+                echo '<h1>Speel je <span style="color: rgb(250, 105, 40);">favoriete</span> games, nu in je web browser!</h1>';
                 echo '<p>Op onze website vind je diverse games, die hopelijk bij je passen.</p>';
             
                 echo '<p>Hier is een lijst van onze games die je nu gelijk kunt spelen.</p>';
-            
+                echo '<a href="../login/index.php" class="button">Bekijk games</a>';
+
                 echo '</section>';
             
                 echo '</section>';

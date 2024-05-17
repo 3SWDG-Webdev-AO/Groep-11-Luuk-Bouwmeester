@@ -89,9 +89,24 @@ section.home_slideshow > img {
 section.text_overlay {
     position: absolute;
     left: 20px;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.25);
     padding: 20px;
     color: white;
+}
+
+section.text_overlay > a.button {
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgb(250, 105, 40);
+    color: white;
+    text-decoration: none;
+    font-family: "Radio Canada Big", sans-serif;
+}
+
+section.text_overlay a.button:hover {
+    color: black;
 }
 
 section.text_overlay h1 {
