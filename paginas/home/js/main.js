@@ -16,4 +16,4 @@ function updateSlide() {
 updateSlide();
 
 // Start een interval om de slides te updaten hierna
-setInterval(updateSlide, 2000);
+setInterval(updateSlide, 5000);

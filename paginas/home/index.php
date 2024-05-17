@@ -26,8 +26,18 @@
             foreach ($slideshowAfbeeldingen as $afbeelding) {
                 echo '<section class="home_slideshow">';
                 echo '<img src="' . $afbeelding . '" alt="Slideshow van games">';
+            
+                echo '<section class="text_overlay">';
+                echo '<h1>Speel je <span style="color: orange;">favoriete</span> games, nu in je web browser!</h1>';
+                echo '<p>Op onze website vind je diverse games, die hopelijk bij je passen.</p>';
+            
+                echo '<p>Hier is een lijst van onze games die je nu gelijk kunt spelen.</p>';
+            
+                echo '</section>';
+            
                 echo '</section>';
             }
+          
         ?>
 
     </main>
