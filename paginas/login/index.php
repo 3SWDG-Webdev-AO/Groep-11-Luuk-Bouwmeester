@@ -17,6 +17,8 @@
     <main>
 
         <form method="POST" action="index.php" class="login_formulier">
+            <label class="login_label_bold">Inloggen</label>
+
             <label for="gebruikersnaam">Gebruikersnaam</label>
             <input type="text" id="gebruikersnaam" name="gebruikersnaam"required>
 

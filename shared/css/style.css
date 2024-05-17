@@ -125,6 +125,7 @@ section.home_middel {
     padding: 20px;
     margin: 20px;
     background-color: rgb(250, 105, 40);
+    border: 1px solid #959595;
 }
 
 section.home_middel h1 {
@@ -201,6 +202,10 @@ form.login_formulier input[type="submit"] {
 
 form.login_formulier input[type="submit"]:hover {
     color: #000000;
+}
+
+.login_label_bold {
+    font-weight: bold;
 }
 
 .login_link_text {
