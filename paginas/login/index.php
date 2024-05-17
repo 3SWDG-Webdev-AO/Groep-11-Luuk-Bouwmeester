@@ -16,6 +16,19 @@
 
     <main>
 
+        <form method="POST" action="index.php" class="login_formulier">
+            <label for="gebruikersnaam">Gebruikersnaam</label>
+            <input type="text" id="gebruikersnaam" name="gebruikersnaam"required>
+
+            <label for="wachtwoord">Wachtwoord</label>
+            <input type="password" id="wachtwoord" name="wachtwoord"required>
+
+            <a href="#" class="login_link_text right-align">Wachtwoord vergeten?</a>
+            <input type="submit" name ="submit" value="Inloggen">
+
+            <a href="#" class="login_link_text left-align">Nog geen account? Maak een account.</a>
+        </form>
+
     </main>
 
     <?php include "../../shared/php/footer.php"; ?>
