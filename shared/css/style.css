@@ -115,7 +115,7 @@ section.home_text_overlay h1 {
     text-align: center;
 }
 
-section.home_text_overlay > p {
+section.home_text_overlay p {
     font-family: "Titillium Web", sans-serif;
     font-size: 18px;
 }
@@ -127,9 +127,19 @@ section.home_middel {
     background-color: rgb(250, 105, 40);
 }
 
+section.home_middel h1 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 32px;
+}
+
+section.home_middel p {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 20px;
+}
+
 section.home_container {
     padding: 20px;
-    background-color: rgb(250, 136, 85);
+    background-color: rgb(255, 154, 107);
     margin-right: 20px;
 }
 
