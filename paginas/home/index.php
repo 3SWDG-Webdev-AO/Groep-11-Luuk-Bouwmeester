@@ -16,6 +16,20 @@
 
     <main>
 
+        <?php
+            $slideshowAfbeeldingen = [
+                "img/1.jpg",
+                "img/2.jpg",
+                "img/3.jpg"
+            ];
+
+            foreach ($slideshowAfbeeldingen as $afbeelding) {
+                echo '<section class="home_slideshow">';
+                echo '<img src="' . $afbeelding . '" alt="Slideshow van games">';
+                echo '</section>';
+            }
+        ?>
+
     </main>
 
     <?php include "../../shared/php/footer.php"; ?>
