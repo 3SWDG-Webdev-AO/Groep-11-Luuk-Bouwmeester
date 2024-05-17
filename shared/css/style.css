@@ -152,3 +152,51 @@ section.home_slideshow > img {
     max-width: 100%;
     width: 500px;
 }
+
+/* form styles */
+form.login_formulier {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #959595;
+    background-color: #f9f9f9;
+}
+
+form.login_formulier h1 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form.login_formulier label {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+form.login_formulier input[type="text"], form.login_formulier input[type="password"], form.login_formulier textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #959595;
+    box-sizing: border-box;
+}
+
+form.login_formulier input[type="submit"] {
+    background-color: rgb(250, 105, 40);
+    color: white;
+    padding: 10px 20px;
+    width: 400px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 18px;
+}
+
+form.login_formulier input[type="submit"]:hover {
+    color: #000000;
+}
