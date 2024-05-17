@@ -16,6 +16,31 @@
 
     <main>
 
+        <?php
+            $slideshowAfbeeldingen = [
+                "img/1.jpg",
+                "img/2.jpg",
+                "img/3.jpg"
+            ];
+
+            foreach ($slideshowAfbeeldingen as $afbeelding) {
+                echo '<section class="home_slideshow">';
+                echo '<img src="' . $afbeelding . '" alt="Slideshow van games">';
+            
+                echo '<section class="text_overlay">';
+                echo '<h1>Speel je <span style="color: rgb(250, 105, 40);">favoriete</span> games, nu in je web browser!</h1>';
+                echo '<p>Op onze website vind je diverse games, die hopelijk bij je passen.</p>';
+            
+                echo '<p>Hier is een lijst van onze games die je nu gelijk kunt spelen.</p>';
+                echo '<a href="../login/index.php" class="button">Bekijk games</a>';
+
+                echo '</section>';
+            
+                echo '</section>';
+            }
+          
+        ?>
+
     </main>
 
     <?php include "../../shared/php/footer.php"; ?>
