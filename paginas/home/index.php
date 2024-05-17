@@ -61,6 +61,17 @@
 
         </section>
 
+        <section class="home_middel">
+
+            <section class="home_container">
+
+                <h1>Laatste High Scores.</h1>
+                <p>Hier komen de laatste high scores.</p>
+
+            </section>
+
+        </section>
+
     </main>
 
     <?php include "../../shared/php/footer.php"; ?>
