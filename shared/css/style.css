@@ -207,9 +207,17 @@ form.login_formulier input[type="submit"]:hover {
     font-family: "Radio Canada Big", sans-serif;
     color: rgb(250, 105, 40);
     text-decoration: none;
-    margin-bottom: 10px;
 }
 
 .login_link_text:hover {
     color: #000000;
+}
+
+.login_link_text.right-align {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.login_link_text.left-align {
+    text-align: left;
 }
