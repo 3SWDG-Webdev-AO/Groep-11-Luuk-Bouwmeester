@@ -119,3 +119,26 @@ section.home_text_overlay > p {
     font-family: "Titillium Web", sans-serif;
     font-size: 18px;
 }
+
+section.home_middel {
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(250, 105, 40);
+}
+
+section.home_container {
+    padding: 20px;
+    background-color: rgb(250, 136, 85);
+    margin-right: 20px;
+}
+
+section.home_slideshow {
+    display: flex;
+}
+
+section.home_slideshow > img {
+    height: auto;
+    max-width: 100%;
+    width: 500px;
+}

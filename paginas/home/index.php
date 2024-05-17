@@ -29,20 +29,37 @@
 
         </section>
 
-        <?php
-            $slideshowAfbeeldingen = [
-                "img/1.jpg",
-                "img/2.jpg",
-                "img/3.jpg"
-            ];
+        <section class="home_middel">
 
-            foreach ($slideshowAfbeeldingen as $afbeelding) {
-                echo '<section class="home_slideshow">';
-                echo '<img src="' . $afbeelding . '" alt="Slideshow van games">';
-                echo '</section>';
-            }
-          
-        ?>
+            <section class="home_container">
+
+                <?php
+                    $slideshowAfbeeldingen = [
+                        "img/1.jpg",
+                        "img/2.jpg",
+                        "img/3.jpg"
+                    ];
+
+                    echo '<h1>Naam van de game</h1>';
+
+                    foreach ($slideshowAfbeeldingen as $afbeelding) {
+                        echo '<section class="home_slideshow">';
+                        echo '<img src="' . $afbeelding . '" alt="Slideshow van games">';
+                        echo '</section>';
+                    }
+                
+                ?>
+
+            </section>
+
+            <section class="home_container">
+
+                <h1>Hier komt informatie en tekst over de website.</h1>
+                <p>Tekst komt hier dus binnenkort.</p>
+
+            </section>
+
+        </section>
 
     </main>
 
