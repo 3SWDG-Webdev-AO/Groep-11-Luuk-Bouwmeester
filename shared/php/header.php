@@ -6,5 +6,6 @@
     <nav class="header_navigatie">
         <a href="../home/index.php">Home</a>
         <a href="../login/index.php">Login</a>
+        <a href="../games/index.php">Games</a>
     </nav>
 </header>
