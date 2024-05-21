@@ -192,7 +192,6 @@ form.account_formulier input[type="submit"] {
     background-color: rgb(250, 105, 40);
     color: white;
     padding: 10px 20px;
-    margin-bottom: 10px;
     width: 400px;
     text-align: center;
     cursor: pointer;
@@ -204,7 +203,7 @@ form.account_formulier input[type="submit"]:hover {
     color: #000000;
 }
 
-.login_label_bold {
+.account_label_bold {
     font-weight: bold;
 }
 
@@ -225,4 +224,5 @@ form.account_formulier input[type="submit"]:hover {
 
 .login_link_text.left-align {
     text-align: left;
+    margin-top: 10px;
 }

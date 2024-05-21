@@ -17,7 +17,7 @@
     <main>
 
         <form method="POST" action="index.php" class="account_formulier">
-            <label class="login_label_bold">Account aanmaken</label>
+            <label class="account_label_bold">Account aanmaken</label>
 
             <label for="gebruikersnaam">Gebruikersnaam</label>
             <input type="text" id="gebruikersnaam" name="gebruikersnaam"required>
@@ -27,8 +27,7 @@
 
             <label for="wachtwoord">Bevestig wachtwoord</label>
             <input type="password" id="bevestig_wachtwoord" name="bevestig_wachtwoord"required>
-
-            <input type="submit" name ="submit" value="Verzenden">
+            <input type="submit" name="submit" value="Verzenden">
         </form>
 
     </main>
