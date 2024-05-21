@@ -234,3 +234,27 @@ form.account_formulier input[type="submit"]:hover {
     text-align: left;
     margin-top: 10px;
 }
+
+/* games pagina */
+section.games_overzicht {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+section.game {
+    padding: 20px;
+    background-color: rgb(250, 105, 40);
+    border: 1px solid #959595;
+}
+
+section.game h1 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 24px;
+}
+
+section.game p {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+}

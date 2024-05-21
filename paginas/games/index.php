@@ -16,6 +16,24 @@
 
     <main>
 
+    <section class="games_overzicht">
+
+            <section class="game">
+
+                <h1>Voorbeeld titel van game</h1>
+                <p>Voorbeeld p van game</p>
+
+            </section>
+
+            <section class="game">
+
+                <h1>Voorbeeld titel van game</h1>
+                <p>Voorbeeld p van game</p>
+
+            </section>
+
+        </section>
+
     </main>
 
     <?php include "../../shared/php/footer.php"; ?>
