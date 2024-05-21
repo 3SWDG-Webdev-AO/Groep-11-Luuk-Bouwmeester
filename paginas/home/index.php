@@ -65,7 +65,7 @@
 
             <section class="home_container">
 
-                <h1>Laatste High Scores.</h1>
+                <h1>Laatste high scores.</h1>
                 <p>Hier komen de laatste high scores.</p>
 
             </section>
