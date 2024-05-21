@@ -16,8 +16,8 @@
 
     <main>
 
-        <form method="POST" action="index.php" class="login_formulier">
-            <label class="login_label_bold">Inloggen</label>
+        <form method="POST" action="index.php" class="account_formulier">
+            <label class="account_label_bold">Inloggen</label>
 
             <label for="gebruikersnaam">Gebruikersnaam</label>
             <input type="text" id="gebruikersnaam" name="gebruikersnaam"required>
@@ -28,7 +28,7 @@
             <a href="#" class="login_link_text right-align">Wachtwoord vergeten?</a>
             <input type="submit" name ="submit" value="Inloggen">
 
-            <a href="#" class="login_link_text left-align">Nog geen account? Maak een account.</a>
+            <a href="../registratie/index.php" class="login_link_text left-align">Nog geen account? Maak een account.</a>
         </form>
 
     </main>
