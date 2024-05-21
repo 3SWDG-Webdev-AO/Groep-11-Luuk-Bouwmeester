@@ -186,6 +186,7 @@ form.account_formulier input[type="text"], form.account_formulier input[type="pa
     margin-bottom: 10px;
     border: 1px solid #959595;
     box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
 }
 
 form.account_formulier input[type="submit"] {
@@ -199,6 +200,13 @@ form.account_formulier input[type="submit"] {
     font-size: 18px;
 }
 
+form.account_formulier select {
+    width: 400px;
+    cursor: pointer;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+}
+    
 form.account_formulier input[type="submit"]:hover {
     color: #000000;
 }
