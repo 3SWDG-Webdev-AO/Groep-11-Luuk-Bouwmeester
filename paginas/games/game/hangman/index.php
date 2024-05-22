@@ -21,7 +21,15 @@
         <input type="text" id="gok_input" maxlength="1">
         <button id="gok_button">Gok!</button>
 
-        <button id="hint_button">Krijg Hint</button>
+        <br>
+
+        <label for="raad_input">Raad het woordt:</label>
+        <input type="text" id="raad_input">
+        <button id="raad_button">Raad!</button>
+
+        <br>
+
+        <button id="hint_button">Krijg hint</button>
         <span id="hint_display"></span>
     </main>
 
