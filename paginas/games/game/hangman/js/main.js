@@ -18,14 +18,15 @@ function runHangMan(woordenLijst) {
     const woord = geselecteerdeWoord.woord;
     const betekenis = geselecteerdeWoord.betekenis;
 
-    // Display de geselecteerde woord op de html
+    // Vang de displays op
     const woordDisplay = document.getElementById("woord_display");
+    const gameOverDisplay = document.getElementById("game_over_display");
 
     // Zet de woord display content als _, zodat je weet hoelang het woord is
     woordDisplay.textContent = woord.split("").map(() => "_").join(" ");
 
     // Deze variabelen gaan we later aanpassen, eerst moeten we ze initializeren
-    let lettersOver = geselecteerdeWoord.length;
+    let lettersOver = woord.length;
     let onjuistGoks = 0;
     let geraadeLetters = [];
 
@@ -70,10 +71,10 @@ function runHangMan(woordenLijst) {
                     woordArray[index] = gok;
                   }
             });
-            
+
             woordDisplay.textContent = woordArray.join(" ");
 
-            // ER is nu dus een letter geraden, dus haal dit van de letters over af
+            // Er is nu dus een letter geraden, dus haal dit van de letters over af
             lettersOver--;
         }
         
@@ -85,12 +86,12 @@ function runHangMan(woordenLijst) {
 
         // Er zijn geen letters meer over, het woord is dus geraden, speler heeft gewonnen.
         if(lettersOver == 0) {
-
+            gameOverDisplay.textContent = "Gewonnen";
         }
 
         // Als er meer dan 6 gokken fout zijn, is het woord niet gevonden, en dus hebben ze verloren
         else if(onjuistGoks > 6) {
-
+            gameOverDisplay.textContent = "Verloren";
         }
     });
 

@@ -16,6 +16,7 @@
 
     <main>
         <p id="woord_display"></p>
+        <p id="game_over_display"></p>
 
         <label for="gok_input">Gok een letter:</label>
         <input type="text" id="gok_input" maxlength="1">
