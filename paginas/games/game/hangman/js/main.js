@@ -43,10 +43,30 @@ function runHangMan(woordenLijst) {
         // Maak de input weer leeg, voor de volgende gok
         gokInput.value = "";
 
+        // Zorg ervoor dat de lengte zeker een character is
+        if (gok.length != 1) {
+            alert('Please enter a single letter.');
+            return;
+        }
+
+        // Gegokte letter zit al in de geraade letter array, dus hij is al eerder geweest.
+        if(geraadeLetters.includes(gok)) {
+            alert("Je hebt deze letter al geraden, probeer een ander letter.");
+            return;
+        }
+
+        // Gegokte letter zit in het woord
         if (woord.includes(gok)) {
             console.log("Woord zit er in");
+            geraadeLetters.push(gok);
+            lettersOver--;
         }
-        console.log(gok);
+        
+        // Gegokte letter zit niet in het woord
+        else {
+            console.log("Woord zit er niet in");
+            onjuistGoks++;
+        }
     });
 
     raadButton.addEventListener("click", () => {
