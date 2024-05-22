@@ -15,7 +15,14 @@
     <?php include "../../../../shared/php/header.php"; ?>
 
     <main>
-        
+        <p id="woord_display"></p>
+
+        <label for="gok_input">Gok een letter:</label>
+        <input type="text" id="gok_input" maxlength="1">
+        <button id="gok_button">Gok!</button>
+
+        <button id="hint_button">Krijg Hint</button>
+        <span id="hint_display"></span>
     </main>
 
     <?php include "../../../../shared/php/footer.php"; ?>

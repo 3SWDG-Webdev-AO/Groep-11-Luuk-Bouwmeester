@@ -10,7 +10,20 @@ function fetchWoordennLijst() {
 }
 
 function runHangMan(woordenLijst) {
-    console.log(woordenLijst);
+    // Pak een random woord uit onze woordenlijst
+    const randomIndex = Math.floor(Math.random() * woordenLijst.length);
+    const geselecteerdeWoord = woordenLijst[randomIndex];
+
+    // Display de geselecteerde woord op de html
+    const woordDisplay = document.getElementById("woord_display");
+    woordDisplay.textContent = geselecteerdeWoord;
+
+    // Deze variabelen gaan we later aanpassen, eerst moeten we ze initializeren
+    let lettersOver = selectedWord.length;
+    let onjuistGoks = 0;
+    let geraadeLetters = [];
+
+    console.log(geselecteerdeWoord);
 }
 
 fetchWoordennLijst();
