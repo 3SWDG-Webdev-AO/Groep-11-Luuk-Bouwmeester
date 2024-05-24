@@ -97,7 +97,6 @@ function runHangMan(woordenLijst) {
         
         // Gegokte letter zit niet in het woord
         else {
-            console.log("Woord zit er niet in");
             onjuisteGoks++;
         }
 
