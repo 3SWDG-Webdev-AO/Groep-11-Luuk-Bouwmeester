@@ -3,10 +3,22 @@ function fetchWoordennLijst() {
     fetch("data/woordenlijst.json")
         .then((response) => response.json())
         .then((json) => {
-        // Nadat we dit hebben opgevangen, kunnen we onze wingman functie runnen
+        // Nadat we dit hebben opgevangen, kunnen we onze hangman functie runnen
         // HIer geven we als parameter de data van de json, wat dus de woordenlijst is
         runHangMan(json);
     });
+}
+
+function updateGameOver(lettersOver, onjuisteGoks) {
+    // Er zijn geen letters meer over, het woord is dus geraden, speler heeft gewonnen.
+    if(lettersOver == 0) {
+        gameOverDisplay.textContent = "Gewonnen";
+    }
+
+    // Als er meer dan 6 gokken fout zijn, is het woord niet gevonden, en dus hebben ze verloren
+    else if(onjuistGoks > 6) {
+        gameOverDisplay.textContent = "Verloren";
+    }
 }
 
 function runHangMan(woordenLijst) {
@@ -48,7 +60,7 @@ function runHangMan(woordenLijst) {
 
         // Zorg ervoor dat de lengte zeker een character is
         if (gok.length != 1) {
-            alert('Please enter a single letter.');
+            alert("Vul alsjeblieft maar een character in.");
             return;
         }
 
@@ -87,20 +99,20 @@ function runHangMan(woordenLijst) {
             onjuistGoks++;
         }
 
-        // Er zijn geen letters meer over, het woord is dus geraden, speler heeft gewonnen.
-        if(lettersOver == 0) {
-            gameOverDisplay.textContent = "Gewonnen";
-        }
-
-        // Als er meer dan 6 gokken fout zijn, is het woord niet gevonden, en dus hebben ze verloren
-        else if(onjuistGoks > 6) {
-            gameOverDisplay.textContent = "Verloren";
-        }
+        updateGameOver(lettersOver, onjuistGoks);
     });
 
     raadButton.addEventListener("click", () => {
         const raad = raadInput.value.toLowerCase();
-        console.log(raad);
+
+        if(raad == woord) {
+            lettersOver = 0;
+            woordDisplay.textContent = woord;
+        } else {
+            onjuistGoks++;
+        }
+
+        updateGameOver(lettersOver, onjuistGoks);
     });
         
     console.log(geselecteerdeWoord);
