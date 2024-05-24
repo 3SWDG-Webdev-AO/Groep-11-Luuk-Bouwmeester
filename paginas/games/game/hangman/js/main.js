@@ -66,16 +66,19 @@ function runHangMan(woordenLijst) {
             // Vervang de "_" in het woord met de juiste letter
             const woordArray = woordDisplay.textContent.split(" ");
 
+            // We moeten dit bijhouden in een aparte variabele omdat er anders bij 2x dezelfde letter (bv p in appel) hij er maar 1 letter afhaald
+            let aantalGevondenLetters = 0;
             woord.split("").forEach((letter, index) => {
                 if (letter == gok) {
                     woordArray[index] = gok;
+                    aantalGevondenLetters++;
                   }
             });
 
             woordDisplay.textContent = woordArray.join(" ");
 
             // Er is nu dus een letter geraden, dus haal dit van de letters over af
-            lettersOver--;
+            lettersOver -= aantalGevondenLetters;
         }
         
         // Gegokte letter zit niet in het woord
