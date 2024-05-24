@@ -9,14 +9,14 @@ function fetchWoordennLijst() {
     });
 }
 
-function updateGameOver(lettersOver, onjuisteGoks) {
+function updateGameOver(gameOverDisplay, lettersOver, onjuisteGoks) {
     // Er zijn geen letters meer over, het woord is dus geraden, speler heeft gewonnen.
     if(lettersOver == 0) {
         gameOverDisplay.textContent = "Gewonnen";
     }
 
     // Als er meer dan 6 gokken fout zijn, is het woord niet gevonden, en dus hebben ze verloren
-    else if(onjuistGoks > 6) {
+    else if(onjuisteGoks > 6) {
         gameOverDisplay.textContent = "Verloren";
     }
 }
@@ -33,13 +33,14 @@ function runHangMan(woordenLijst) {
     // Vang de displays op
     const woordDisplay = document.getElementById("woord_display");
     const gameOverDisplay = document.getElementById("game_over_display");
+    const hintDisplay = document.getElementById("hint_display");
 
     // Zet de woord display content als _, zodat je weet hoelang het woord is
     woordDisplay.textContent = woord.split("").map(() => "_").join(" ");
 
     // Deze variabelen gaan we later aanpassen, eerst moeten we ze initializeren
     let lettersOver = woord.length;
-    let onjuistGoks = 0;
+    let onjuisteGoks = 0;
     let geraadeLetters = [];
 
     // Vang de gok text & knop op
@@ -49,6 +50,7 @@ function runHangMan(woordenLijst) {
     // Doe dit ook voor de raad fields
     const raadInput = document.getElementById("raad_input");
     const raadButton = document.getElementById("raad_button");
+    const hintButton = document.getElementById("hint_button");
 
     // Event listener die wordt geroepen als je op de gok knop drukt.
     gokButton.addEventListener("click", () => {
@@ -96,23 +98,28 @@ function runHangMan(woordenLijst) {
         // Gegokte letter zit niet in het woord
         else {
             console.log("Woord zit er niet in");
-            onjuistGoks++;
+            onjuisteGoks++;
         }
 
-        updateGameOver(lettersOver, onjuistGoks);
+        updateGameOver(gameOverDisplay, lettersOver, onjuisteGoks);
     });
 
     raadButton.addEventListener("click", () => {
         const raad = raadInput.value.toLowerCase();
 
+        // Het geraade woord is hetzelfde als het woord, het is dus geraden.
         if(raad == woord) {
             lettersOver = 0;
-            woordDisplay.textContent = woord;
+            woordDisplay.textContent = woord.split("").join(" ");
         } else {
-            onjuistGoks++;
+            onjuisteGoks++;
         }
 
-        updateGameOver(lettersOver, onjuistGoks);
+        updateGameOver(gameOverDisplay, lettersOver, onjuisteGoks);
+    });
+
+    hintButton.addEventListener("click", () => {
+        hintDisplay.textContent = betekenis;
     });
         
     console.log(geselecteerdeWoord);
