@@ -15,31 +15,45 @@
     <?php include "../../../../shared/php/header.php"; ?>
 
     <main>
-        <section class="game_container">
-            <p id="woord_display"></p>
-            <p id="game_over_display"></p>
+        <section class="hangman_container">
 
-            <section class="gok_letter">
+            <section class="game_container">
 
-                <label for="gok_input">Gok een letter:</label>
-                <input type="text" id="gok_input" maxlength="1">
-                <button id="gok_button">Gok!</button>
+                <section class="woord_display_section">
 
-            </section>
+                    <p id="woord_display"></p>
 
-            <section class="raad_woord">
+                </section>
 
-                <label for="raad_input">Raad het woordt:</label>
-                <input type="text" id="raad_input">
-                <button id="raad_button">Raad!</button>
+                <section class="game_over_display_section">
 
-            </section>
-            
-            <section class="hint_woord">
+                    <p id="game_over_display"></p>
 
-                <button id="hint_button">Krijg hint</button>
-                <span id="hint_display"></span>
+                </section>
 
+                <section class="gok_letter">
+
+                    <label for="gok_input">Gok een letter:</label>
+                    <input type="text" id="gok_input" maxlength="1" class="input_field">
+                    <button id="gok_button" class="gok_button">Gok!</button>
+
+                </section>
+
+                <section class="raad_woord">
+
+                    <label for="raad_input">Raad het woordt:</label>
+                    <input type="text" id="raad_input" class="input_field">
+                    <button id="raad_button" class="raad_button">Raad!</button>
+
+                </section>
+
+                <section class="hint_woord">
+
+                    <button id="hint_button" class="hint_button">Krijg hint</button>
+                    <span id="hint_display" class="hint_display"></span>
+
+                </section>
+                
             </section>
 
         </section>

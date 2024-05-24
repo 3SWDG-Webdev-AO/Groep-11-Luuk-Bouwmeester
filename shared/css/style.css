@@ -258,28 +258,53 @@ section.game p {
     font-family: "Titillium Web", sans-serif;
     font-size: 16px;
 }
+
 /* hangman game styles */
+section.hangman_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 section.game_container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 50px;
     padding: 20px;
     border: 1px solid #959595;
-    margin-right: 20px;
+    background-color: #f9f9f9;
 }
 
-section.gok_letter, section.raad_woord, section.hint_woord {
+section.game_container .woord_display_section, section.game_container .game_over_display_section {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+section.game_container .gok_letter, section.game_container .raad_woord, section.game_container .hint_woord {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
-section.gok_letter > button, section.raad_woord > button, section.hint_woord > button {
+section.game_container label {
+    font-weight: bold;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+section.game_container .input_field {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #959595;
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+}
+
+section.game_container .gok_button, section.game_container .raad_button, section.game_container .hint_button {
     display: inline-block;
     font-size: 18px;
-    margin-top: 10px;
     padding: 10px 20px;
     background-color: rgb(250, 105, 40);
     color: white;
@@ -288,6 +313,12 @@ section.gok_letter > button, section.raad_woord > button, section.hint_woord > b
     cursor: pointer;
 }
 
-section.gok_letter > button:hover, section.raad_woord > button:hover, section.hint_woord > button:hover {
+section.game_container .gok_button:hover, section.game_container .raad_button:hover, section.game_container .hint_button:hover {
     color: black;
+}
+
+section.game_container .hint_display {
+    margin-left: 5px;
+    font-family: "Titillium Web", sans-serif;
+    font-style: italic;
 }
