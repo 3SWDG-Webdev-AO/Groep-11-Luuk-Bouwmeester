@@ -20,9 +20,12 @@
 
             <section class="game">
 
-                <h1>Voorbeeld titel van game</h1>
-                <p>Voorbeeld p van game</p>
-
+                <h1>Hangman</h1>
+                <p>Hangman is een klassiek taalspel waarbij spelers een woord moeten raden door letters te noemen. Met elke incorrecte letter wordt er een deel van een opgehangen man getekend. Het doel is om het woord te raden voordat de hele man is getekend.</p>
+                <a href="game/hangman/index.php">
+                    <img src="img/hangman.png" alt="Afbeelding van de hangman game">
+                </a>
+                
             </section>
 
             <section class="game">
