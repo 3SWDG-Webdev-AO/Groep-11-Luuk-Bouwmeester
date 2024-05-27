@@ -39,7 +39,7 @@
             <label for="geheime_vraag_antwoord">Antwoord geheime vraag</label>
             <input type="text" id="geheime_vraag_antwoord" name="geheime_vraag_antwoord" required>
 
-            <input type="submit" name="submit_form" value="Verzenden">
+            <input type="submit" name="submit" value="Verzenden">
         </form>
 
     </main>
