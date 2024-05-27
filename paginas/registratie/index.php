@@ -16,7 +16,7 @@
 
     <main>
 
-        <form method="POST" action="index.php" class="account_formulier">
+        <form method="POST" action="index.php" class="account_formulier" id="registratie_formulier">
             <label class="accont_login_bold">Account aanmaken</label>
 
             <label for="gebruikersnaam">Gebruikersnaam</label>
@@ -39,7 +39,7 @@
             <label for="geheime_vraag_antwoord">Antwoord geheime vraag</label>
             <input type="text" id="geheime_vraag_antwoord" name="geheime_vraag_antwoord" required>
 
-            <input type="submit" name="submit" value="Verzenden">
+            <input type="submit" name="submit_form" value="Verzenden">
         </form>
 
     </main>
