@@ -49,8 +49,8 @@ registratieFormulier.addEventListener("submit", (event) => {
     let geldigWachtword = isGeldigWachtwoord();
 
     if(geldigWachtword) {
+        // Submit de formulier nu we weten dat het wachtworod geldig is
         console.log("Geldig");
-        registratieFormulier.submit();
     } else {
         console.log("Formulier ongeldig");
     }

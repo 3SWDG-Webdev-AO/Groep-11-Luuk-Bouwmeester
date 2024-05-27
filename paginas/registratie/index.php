@@ -17,7 +17,7 @@
     <main>
 
         <form method="POST" action="index.php" class="account_formulier" id="registratie_formulier">
-            <label class="accont_login_bold">Account aanmaken</label>
+            <label class="account_label_bold">Account aanmaken</label>
 
             <label for="gebruikersnaam">Gebruikersnaam</label>
             <input type="text" id="gebruikersnaam" name="gebruikersnaam"required>
