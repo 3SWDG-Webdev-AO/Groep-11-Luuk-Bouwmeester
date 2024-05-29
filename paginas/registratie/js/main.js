@@ -7,7 +7,7 @@ const bevestigWachtwoordInput = document.getElementById("bevestig_wachtwoord");
 const wachtwoordValue = wachtwoordInput.value;
 const bevestigWachtwoordValue = bevestigWachtwoordInput.value;
 
-// FUnctie om te checken of de 2 ingevulde wachtwoorden hetzelfde zijn
+// Functie om te checken of de 2 ingevulde wachtwoorden hetzelfde zijn
 function isWachtwoordZelfde() {
     // Wachtwoord komt niet overeen met het bevestig wachtwoord
     if (wachtwoordValue !== bevestigWachtwoordValue) {
