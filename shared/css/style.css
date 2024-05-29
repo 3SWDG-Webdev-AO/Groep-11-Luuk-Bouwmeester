@@ -148,6 +148,7 @@ section.home_container {
 
 section.high_scores {
     display: flex;
+    border: 1px solid #eeeeee;
     flex-direction: column;
     font-family: "Titillium Web", sans-serif;
     font-size: 20px;
@@ -167,8 +168,8 @@ section.high_scores .column {
 section.high_scores hr {
     border: none;
     height: 1px;
-    background-color: rgb(255, 255, 255);
-    margin: 10px 0;
+    background-color: #eeeeee;
+    margin: 2px 0;
 }
 
 section.home_slideshow {
