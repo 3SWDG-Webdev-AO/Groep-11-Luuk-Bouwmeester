@@ -86,6 +86,26 @@
                 // Set pdo error mode
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+                // Bereid de query voor
+                $query = "SELECT * FROM highscores";
+
+                // Voer de query uit
+                $result = $pdo->query($query);
+
+                // Fetch de highscores
+                $highscores = $result->fetchAll(PDO::FETCH_BOTH);
+
+                // Kijk of we wel high scores zijn
+                if(count($highscores) > 0) {
+                    // Loop door alle highscores
+                    foreach($highscores as $highscore) {
+                        echo "Gebruiker id: " . $highscore["gebruiker_id"] . ", highscore: " . $highscore["highscore"] . "<br>";
+                    }
+                } else {
+                    echo "Geen gebruikers gevonden";
+                }
+                
+
                 echo "In de database!";
             } catch (PDOException $e) {
                 // Catch error
