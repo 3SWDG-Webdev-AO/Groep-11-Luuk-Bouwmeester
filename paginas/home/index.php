@@ -62,15 +62,44 @@
         </section>
 
         <section class="home_middel">
-
             <section class="home_container">
-
                 <h1>Laatste high scores.</h1>
-                <p>Hier komen de laatste high scores.</p>
+                
+                <section class="high_scores">
+                    <section class="high_score_row">
+                        <div class="column">Gebruiker</div>
+                        <div class="column">Highscore</div>
+                        <div class="column">Datum</div>
+                    </section>
+
+                    <hr>
+
+                    <section class="high_score_row">
+                        <div class="column">Gebruiker 1</div>
+                        <div class="column">1000</div>
+                        <div class="column">9 juni</div>
+                    </section>
+
+                    <hr>
+
+                    <section class="high_score_row">
+                        <div class="column">Gebruiker 2</div>
+                        <div class="column">3000</div>
+                        <div class="column">12 juni</div>
+                    </section>
+
+                    <hr>
+
+                    <section class="high_score_row">
+                        <div class="column">Gebruiker 3</div>
+                        <div class="column">5000</div>
+                        <div class="column">14 juni</div>
+                    </section>
+
+                </section>
 
             </section>
-
-        </section>
+        </section>  
 
         <?php
             // Gegevens van de database
@@ -105,7 +134,6 @@
                     echo "Geen gebruikers gevonden";
                 }
                 
-
                 echo "In de database!";
             } catch (PDOException $e) {
                 // Catch error
