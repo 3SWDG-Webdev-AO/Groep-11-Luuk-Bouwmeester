@@ -8,7 +8,6 @@
     <meta name="keywords" content="pixel, playground, games">
     <title>Pixel Playground - Games</title>
     <link rel="stylesheet" type="text/css" href="../../shared/css/style.css">
-    <script src="js/main.js" defer></script>
 </head>
 
 <body>
