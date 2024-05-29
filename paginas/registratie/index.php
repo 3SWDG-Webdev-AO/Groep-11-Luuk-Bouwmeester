@@ -16,7 +16,7 @@
 
     <main>
 
-        <form method="POST" action="index.php" class="account_formulier" id="registratie_formulier">
+        <form method="POST" action="index.php" class="account_formulier" id="registratie_formulier" onsubmit="return isGeldigWachtwoord();">
             <label class="account_label_bold">Account aanmaken</label>
 
             <label for="gebruikersnaam">Gebruikersnaam</label>
