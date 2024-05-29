@@ -62,39 +62,74 @@
         </section>
 
         <section class="home_middel">
-
             <section class="home_container">
-
                 <h1>Laatste high scores.</h1>
-                <p>Hier komen de laatste high scores.</p>
+    
+                <section class="high_scores">
+                    <section class="high_score_row">
+                        <p class="column">Game</p>
+                        <p class="column">Gebruiker</p>
+                        <p class="column">Highscore</p>
+                        <p class="column">Datum</p>
+                    </section>
+
+                    <?php
+                        // Gegevens van de database
+                        $host = "localhost";
+                        $dbname = "pixelplayground";
+                        $username = "root";
+                        $password = "";
+
+                        try {
+                            // Connect d.m.v. pdo
+                            $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+                            // Set pdo error mode
+                            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                            // Bereid de query voor
+                            $query = "SELECT * FROM highscores ORDER BY timestamp DESC";
+
+                            // Voer de query uit
+                            $result = $pdo->query($query);
+
+                            // Fetch de highscores
+                            $highscores = $result->fetchAll(PDO::FETCH_BOTH);
+
+                            // Kijk of we wel high scores zijn
+                            if(count($highscores) > 0) {
+                                // Loop door alle highscores
+                                foreach($highscores as $highscore) {
+                                    $game_id = $highscore["game_id"];
+                                    $gebruiker_id = $highscore["gebruiker_id"];
+                                    $highscore_score = $highscore["highscore"];
+                                    $timestamp = $highscore["timestamp"];
+                                
+                                    echo '<section class="high_score_row">';
+                                    echo '<p class="column">' . $game_id . '</p>';
+                                    echo '<p class="column">' . $gebruiker_id . '</p>';
+                                    echo '<p class="column">' . $highscore_score . '</p>';
+                                    echo '<p class="column">' . $timestamp . '</p>';
+                                    echo '</section>';
+                                    echo '<hr>';
+                                }
+                            } else {
+                                echo "Geen highscores gevonden!";
+                            }
+                        } catch (PDOException $e) {
+                            // Catch error
+                            echo "Foutmelding: " . $e->getMessage();
+                        }
+
+                        // Sluit connectie
+                        $pdo = null;
+                    ?>
 
             </section>
 
         </section>
 
-        <?php
-            // Gegevens van de database
-            $host = "localhost";
-            $dbname = "pixelplayground";
-            $username = "root";
-            $password = "";
-
-            try {
-                // Connect d.m.v. pdo
-                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-
-                // Set pdo error mode
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                echo "In de database!";
-            } catch (PDOException $e) {
-                // Catch error
-                echo "Foutmelding: " . $e->getMessage();
-            }
-
-            // Sluit connectie
-            $pdo = null;
-        ?>
+    </section>  
 
     </main>
 

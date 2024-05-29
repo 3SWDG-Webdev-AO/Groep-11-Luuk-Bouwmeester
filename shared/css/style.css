@@ -143,6 +143,33 @@ section.home_container {
     background-color: rgb(252, 136, 78);
     border: 1px solid #959595;
     margin-right: 20px;
+    flex-grow: 1;
+}
+
+section.high_scores {
+    display: flex;
+    border: 1px solid #eeeeee;
+    flex-direction: column;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+section.high_scores .high_score_row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+section.high_scores .column {
+    flex: 1;
+    padding: 5px;
+}
+
+section.high_scores hr {
+    border: none;
+    height: 1px;
+    background-color: #eeeeee;
+    margin: 2px 0;
 }
 
 section.home_slideshow {
