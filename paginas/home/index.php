@@ -72,6 +72,30 @@
 
         </section>
 
+        <?php
+            // Gegevens van de database
+            $host = "localhost";
+            $dbname = "pixelplayground";
+            $username = "root";
+            $password = "";
+
+            try {
+                // Connect d.m.v. pdo
+                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+                // Set pdo error mode
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                echo "In de database!";
+            } catch (PDOException $e) {
+                // Catch error
+                echo "Foutmelding: " . $e->getMessage();
+            }
+
+            // Sluit connectie
+            $pdo = null;
+        ?>
+
     </main>
 
     <?php include "../../shared/php/footer.php"; ?>
