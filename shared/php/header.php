@@ -7,5 +7,6 @@
         <a href="../home/index.php">Home</a>
         <a href="../login/index.php">Login</a>
         <a href="../games/index.php">Games</a>
+        <a href="../friends/index.php">Vrienden</a>
     </nav>
 </header>
