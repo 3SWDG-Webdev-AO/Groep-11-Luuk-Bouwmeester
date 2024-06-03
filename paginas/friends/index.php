@@ -14,6 +14,8 @@
     <?php include "../../shared/php/header.php"; ?>
 
     <main>
+        <label for="gebruikersnaam">Gebruikersnaam</label>
+        <input type="text" id="gebruikersnaam" name="gebruikersnaam"required>
 
         <?php
             // Gegevens van de database
@@ -41,9 +43,16 @@
                 // Kijk of we wel gebruikers zijn
                 if(count($gebruikers) > 0) {
                     // Loop door alle gebruikers
+                    echo '<section class="gebruikers_lijst">';
+
                     foreach($gebruikers as $gebruiker) {
+                        echo "<section class='gebruiker'>";
                         echo $gebruiker["gebruikersnaam"];
+                        echo "</section>";
                     }
+
+                    echo '</section>';
+
                 } else {
                     echo "Geen gebruikers gevonden!";
                 }
@@ -55,10 +64,6 @@
             // Sluit connectie
             $pdo = null;
         ?>
-
-
-
-
 
     </main>
 
