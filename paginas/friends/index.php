@@ -16,7 +16,7 @@
 
     <main>
         <label for="gebruikersnaam">Gebruikersnaam</label>
-        <input type="text" id="gebruikersnaam" name="gebruikersnaam"required>
+        <input type="text" id="gebruikersnaam" name="gebruikersnaam" onkeyup="filterGebruikers()" required>
 
         <?php
             // Gegevens van de database
