@@ -356,3 +356,84 @@ section.game_container .hint_display {
     font-family: "Titillium Web", sans-serif;
     font-style: italic;
 }
+
+/* vrienden pagina */
+section.gebruikers_lijst {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+section.gebruiker {
+    padding: 20px;
+    background-color: rgb(250, 105, 40);
+    border: 1px solid #959595;
+}
+
+section.gebruiker h1 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 24px;
+}
+
+section.gebruiker p {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+}
+
+section.gebruiker img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* header styles */
+section.vrienden_header {
+    display: flex;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #959595;
+    background-color: #f9f9f9;
+}
+
+section.vrienden_zoek {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+section.vrienden_zoek > label {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+
+section.vrienden_zoek input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #959595;
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+}
+
+/* vriendne header button styles */
+section.vrienden_button > a.button {
+    margin-right: 5px;
+
+    display: inline-block;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: rgb(250, 105, 40);
+    color: white;
+    text-decoration: none;
+    font-family: "Radio Canada Big", sans-serif;
+}
+
+section.vrienden_button a.button:hover {
+    color: black;
+}

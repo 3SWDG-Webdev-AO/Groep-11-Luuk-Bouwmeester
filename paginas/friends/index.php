@@ -15,8 +15,22 @@
     <?php include "../../shared/php/header.php"; ?>
 
     <main>
-        <label for="gebruikersnaam">Gebruikersnaam</label>
-        <input type="text" id="gebruikersnaam" name="gebruikersnaam" onkeyup="filterGebruikers()" required>
+        <section class="vrienden_header">
+
+            <section class="vrienden_zoek">
+
+                <label for="gebruikersnaam">Filter d.m.v. gebruikersnaam</label>
+                <input type="text" id="gebruikersnaam" name="gebruikersnaam" onkeyup="filterGebruikers()" required>
+
+            </section>
+
+            <section class="vrienden_button">
+
+                <a href="requests/index.php" class="button">Bekijk vrienden verzoeken</a>
+
+            </section>
+
+        </section>
 
         <?php
             // Gegevens van de database
@@ -49,6 +63,8 @@
                     foreach($gebruikers as $gebruiker) {
                         echo "<section class='gebruiker'>";
                         echo $gebruiker["gebruikersnaam"];
+                        echo '<a href="#" class="button">Stuur vriendverzoek</a>';
+
                         echo "</section>";
                     }
 
