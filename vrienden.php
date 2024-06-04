@@ -33,53 +33,36 @@
         </section>
 
         <?php
-            // Gegevens van de database
-            $host = "localhost";
-            $dbname = "pixelplayground";
-            $username = "root";
-            $password = "";
+            // Include de database class
+            require_once "php/database.php";
 
-            try {
-                // Connect d.m.v. pdo
-                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            // Maak een object van de database class
+            $database = new Database();
 
-                // Set pdo error mode
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // Fetch de gebruikers
+            $gebruikers = $database->getGebruikers();
 
-                // Bereid de query voor
-                $query = "SELECT * FROM gebruikers ORDER BY id DESC";
+            // Kijk of we wel gebruikers zijn
+            if(count($gebruikers) > 0) {
+                // Loop door alle gebruikers
+                echo '<section class="gebruikers_lijst">';
 
-                // Voer de query uit
-                $result = $pdo->query($query);
+                foreach($gebruikers as $gebruiker) {
+                    echo "<section class='gebruiker'>";
+                    echo $gebruiker["gebruikersnaam"];
+                    echo '<a href="#" class="button">Stuur vriendverzoek</a>';
 
-                // Fetch de gebruikers
-                $gebruikers = $result->fetchAll(PDO::FETCH_BOTH);
-
-                // Kijk of we wel gebruikers zijn
-                if(count($gebruikers) > 0) {
-                    // Loop door alle gebruikers
-                    echo '<section class="gebruikers_lijst">';
-
-                    foreach($gebruikers as $gebruiker) {
-                        echo "<section class='gebruiker'>";
-                        echo $gebruiker["gebruikersnaam"];
-                        echo '<a href="#" class="button">Stuur vriendverzoek</a>';
-
-                        echo "</section>";
-                    }
-
-                    echo '</section>';
-
-                } else {
-                    echo "Geen gebruikers gevonden!";
+                    echo "</section>";
                 }
-            } catch (PDOException $e) {
-                // Catch error
-                echo "Foutmelding: " . $e->getMessage();
+
+                echo '</section>';
+
+            } else {
+                echo "Geen gebruikers gevonden!";
             }
 
-            // Sluit connectie
-            $pdo = null;
+            // Sluit de connectie
+            $database->sluitConnectie();
         ?>
 
     </main>
