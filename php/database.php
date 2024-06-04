@@ -30,13 +30,17 @@
 
         public function getGebruikers() {
             $query = "SELECT * FROM gebruikers ORDER BY id DESC";
+
             $result = $this->pdo->query($query);
+
             return $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
         public function getHighscores() {
             $query = "SELECT * FROM highscores ORDER BY timestamp DESC";
+            
             $result = $this->pdo->query($query);
+            
             return $result->fetchAll(PDO::FETCH_ASSOC);
         }
     }
