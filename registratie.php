@@ -22,8 +22,8 @@
             // Check of het formulier is ingevuld
             if (isset($_POST["submit"])) {
                 // Vang de gebruikersnaam & wachtwoord op zonder speciale characters
-                $gebruikersnaam = htmlspecialchars($_POST['gebruikersnaam']);
-                $wachtwoord = htmlspecialchars($_POST['wachtwoord']);
+                $gebruikersnaam = htmlspecialchars($_POST["gebruikersnaam"]);
+                $wachtwoord = htmlspecialchars($_POST["wachtwoord"]);
 
                 // Maak een object van de database class
                 $database = new Database();
