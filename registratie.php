@@ -7,12 +7,12 @@
     <meta name="author" content="L. Bouwmeester">
     <meta name="keywords" content="pixel, playground, registreer">
     <title>Pixel Playground - Registratie</title>
-    <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
-    <script src="../../shared/js/registratie.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/registratie.js" defer></script>
 </head>
 
 <body>
-    <?php include "../shared/php/header.php"; ?>
+    <?php include "php/header.php"; ?>
 
     <main>
 
@@ -44,6 +44,6 @@
 
     </main>
 
-    <?php include "../shared/php/footer.php"; ?>
+    <?php include "php/footer.php"; ?>
 </body>
 </html>

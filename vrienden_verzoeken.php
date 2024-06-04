@@ -7,16 +7,16 @@
     <meta name="author" content="L. Bouwmeester">
     <meta name="keywords" content="pixel, playground, hangman">
     <title>Pixel Playground - Vrienden verzoeken</title>
-    <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <?php include "../shared/php/header.php"; ?>
+    <?php include "php/header.php"; ?>
 
     <main>
         <h1>Vrienden verzoeken pagina</h1>
     </main>
 
-    <?php include "../shared/php/footer.php"; ?>
+    <?php include "php/footer.php"; ?>
 </body>
 </html>
