@@ -43,5 +43,32 @@
             
             return $result->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public function login($gebruikersnaam, $wachtwoord) {
+            // Bereid de query voor
+            $query = "SELECT * from gebruikers WHERE gebruikersnaam = '$gebruikersnaam'";
+
+            // Prepare de query
+            $statement = $this->pdo->prepare($query);
+    
+            // Voer de statement uit
+            $statement->execute();
+    
+            // Controleer of we een resultaat hebben gevonden
+            if ($statement->rowCount() == 1) {
+                // Verwerk de resultaten
+                $gebruiker = $statement->fetch(PDO::FETCH_ASSOC);
+                $wachtwoord_database = $gebruiker["wachtwoord"];
+    
+                // Controleer of het wachtwoord overeenkomt
+                if (password_verify($wachtwoord, $wachtwoord_database)) {
+                    return true;
+                } else {
+                    return "Login gefaald, wachtwoord is onjuist";
+                }
+            } else {
+                return "Login gefaald, gebruikersnaam is niet gevonden";
+            }
+        }
     }
 ?>

@@ -14,8 +14,34 @@
     <?php include "php/header.php"; ?>
 
     <main>
+        <?php 
+            // Include de database class
+            require_once "php/database.php";
 
-        <form method="POST" action="index.php" class="account_formulier">
+            // Check of het formulier is ingevuld
+            if (isset($_POST["submit"])) {
+                // vang de gebruikersnaam & wachtwoord op zonder speciale characters
+                $gebruikersnaam = htmlspecialchars($_POST['gebruikersnaam']);
+                $wachtwoord = htmlspecialchars($_POST['wachtwoord']);
+
+                // Maak een object van de database class
+                $database = new Database();
+
+                // Probeer in te loggen
+                $loginResult = $database->login($gebruikersnaam, $wachtwoord);
+
+                if ($loginResult === true) {
+                    echo "Login succesvol";
+                } else {
+                    echo $loginResult;
+                }
+
+                // Sluit de connectie
+                $database->sluitConnectie();
+            }
+        ?>
+
+        <form method="POST" action="login.php" class="account_formulier">
             <label class="account_label_bold">Inloggen</label>
 
             <label for="gebruikersnaam">Gebruikersnaam</label>
