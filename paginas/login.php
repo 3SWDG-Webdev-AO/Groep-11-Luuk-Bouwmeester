@@ -7,11 +7,11 @@
     <meta name="author" content="L. Bouwmeester">
     <meta name="keywords" content="pixel, playground, login">
     <title>Pixel Playground - Login</title>
-    <link rel="stylesheet" type="text/css" href="../../shared/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
 </head>
 
 <body>
-    <?php include "../../shared/php/header.php"; ?>
+    <?php include "../shared/php/header.php"; ?>
 
     <main>
 
@@ -27,11 +27,11 @@
             <a href="#" class="login_link_text right-align">Wachtwoord vergeten?</a>
             <input type="submit" name ="submit" value="Inloggen">
 
-            <a href="../registratie/index.php" class="login_link_text left-align">Nog geen account? Maak een account.</a>
+            <a href="registratie.php" class="login_link_text left-align">Nog geen account? Maak een account.</a>
         </form>
 
     </main>
 
-    <?php include "../../shared/php/footer.php"; ?>
+    <?php include "../shared/php/footer.php"; ?>
 </body>
 </html>

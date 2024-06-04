@@ -8,7 +8,7 @@
     <meta name="keywords" content="pixel, playground, home">
     <title>Pixel Playground - Home</title>
     <link rel="stylesheet" type="text/css" href="shared/css/style.css">
-    <script src="shared/scripts/js.js" defer></script>
+    <script src="shared/js/home.js" defer></script>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <main>
 
         <section class="home_begin">
-            <img src="img/achtergrond.jpeg" alt="Slideshow van games">
+            <img src="shared/img/home_achtergrond.jpeg" alt="Slideshow van games">
 
             <section class="home_text_overlay">
                 <h1>Speel je <span style="color: rgb(250, 105, 40);">favoriete</span> games, nu in je web browser!</h1>
@@ -35,9 +35,9 @@
 
                 <?php
                     $slideshowAfbeeldingen = [
-                        "img/1.jpg",
-                        "img/2.jpg",
-                        "img/3.jpg"
+                        "shared/img/game_1.jpg",
+                        "shared/img/game_2.jpg",
+                        "shared/img/game_3.jpg"
                     ];
 
                     echo '<h1>Naam van de game</h1>';
