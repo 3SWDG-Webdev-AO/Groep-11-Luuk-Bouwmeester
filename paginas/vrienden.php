@@ -7,12 +7,12 @@
     <meta name="author" content="L. Bouwmeester">
     <meta name="keywords" content="pixel, playground, games">
     <title>Pixel Playground - Vrienden</title>
-    <link rel="stylesheet" type="text/css" href="../../shared/css/style.css">
-    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+    <script src="../shared/js/vrienden.js" defer></script>
 </head>
 
 <body>
-    <?php include "../../shared/php/header.php"; ?>
+    <?php include "../shared/php/header.php"; ?>
 
     <main>
         <section class="vrienden_header">
@@ -26,7 +26,7 @@
 
             <section class="vrienden_button">
 
-                <a href="requests/index.php" class="button">Bekijk vrienden verzoeken</a>
+                <a href="vrienden_verzoeken.php" class="button">Bekijk vrienden verzoeken</a>
 
             </section>
 
@@ -84,6 +84,6 @@
 
     </main>
 
-    <?php include "../../shared/php/footer.php"; ?>
+    <?php include "../shared/php/footer.php"; ?>
 </body>
 </html>
