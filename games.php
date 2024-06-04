@@ -7,11 +7,11 @@
     <meta name="author" content="L. Bouwmeester">
     <meta name="keywords" content="pixel, playground, games">
     <title>Pixel Playground - Games</title>
-    <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <?php include "../shared/php/header.php"; ?>
+    <?php include "php/header.php"; ?>
 
     <main>
 
@@ -22,7 +22,7 @@
                 <h1>Hangman</h1>
                 <p>Hangman is een klassiek taalspel waarbij spelers een woord moeten raden door letters te noemen. Met elke incorrecte letter wordt er een deel van een opgehangen man getekend. Het doel is om het woord te raden voordat de hele man is getekend.</p>
                 <a href="hangman.php">
-                    <img src="../shared/img/hangman.png" alt="Afbeelding van de hangman game">
+                    <img src="img/hangman.png" alt="Afbeelding van de hangman game">
                 </a>
                 
             </section>
@@ -38,6 +38,6 @@
 
     </main>
 
-    <?php include "../shared/php/footer.php"; ?>
+    <?php include "php/footer.php"; ?>
 </body>
 </html>

@@ -7,12 +7,12 @@
     <meta name="author" content="L. Bouwmeester">
     <meta name="keywords" content="pixel, playground, hangman">
     <title>Pixel Playground - Hangman</title>
-    <link rel="stylesheet" type="text/css" href="../shared/css/style.css">
-    <script src="../shared/js/hangman.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/hangman.js" defer></script>
 </head>
 
 <body>
-    <?php include "../shared/php/header.php"; ?>
+    <?php include "php/header.php"; ?>
 
     <main>
         <section class="hangman_container">
@@ -59,6 +59,6 @@
         </section>
     </main>
 
-    <?php include "../shared/php/footer.php"; ?>
+    <?php include "php/footer.php"; ?>
 </body>
 </html>
