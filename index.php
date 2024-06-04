@@ -74,55 +74,38 @@
                     </section>
 
                     <?php
-                        // Gegevens van de database
-                        $host = "localhost";
-                        $dbname = "pixelplayground";
-                        $username = "root";
-                        $password = "";
+                        // Include de database class
+                        require_once "php/database.php";
 
-                        try {
-                            // Connect d.m.v. pdo
-                            $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                        // Maak een object van de database class
+                        $database = new Database();
 
-                            // Set pdo error mode
-                            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        // Fetch de gebruikers
+                        $highscores = $database->getHighscores();
 
-                            // Bereid de query voor
-                            $query = "SELECT * FROM highscores ORDER BY timestamp DESC";
-
-                            // Voer de query uit
-                            $result = $pdo->query($query);
-
-                            // Fetch de highscores
-                            $highscores = $result->fetchAll(PDO::FETCH_BOTH);
-
-                            // Kijk of we wel high scores zijn
-                            if(count($highscores) > 0) {
-                                // Loop door alle highscores
-                                foreach($highscores as $highscore) {
-                                    $game_id = $highscore["game_id"];
-                                    $gebruiker_id = $highscore["gebruiker_id"];
-                                    $highscore_score = $highscore["highscore"];
-                                    $timestamp = $highscore["timestamp"];
-                                
-                                    echo '<section class="high_score_row">';
-                                    echo '<p class="column">' . $game_id . '</p>';
-                                    echo '<p class="column">' . $gebruiker_id . '</p>';
-                                    echo '<p class="column">' . $highscore_score . '</p>';
-                                    echo '<p class="column">' . $timestamp . '</p>';
-                                    echo '</section>';
-                                    echo '<hr>';
-                                }
-                            } else {
-                                echo "Geen highscores gevonden!";
+                        // Kijk of we wel high scores zijn
+                        if(count($highscores) > 0) {
+                            // Loop door alle highscores
+                            foreach($highscores as $highscore) {
+                                $game_id = $highscore["game_id"];
+                                $gebruiker_id = $highscore["gebruiker_id"];
+                                $highscore_score = $highscore["highscore"];
+                                $timestamp = $highscore["timestamp"];
+                            
+                                echo '<section class="high_score_row">';
+                                echo '<p class="column">' . $game_id . '</p>';
+                                echo '<p class="column">' . $gebruiker_id . '</p>';
+                                echo '<p class="column">' . $highscore_score . '</p>';
+                                echo '<p class="column">' . $timestamp . '</p>';
+                                echo '</section>';
+                                echo '<hr>';
                             }
-                        } catch (PDOException $e) {
-                            // Catch error
-                            echo "Foutmelding: " . $e->getMessage();
+                        } else {
+                            echo "Geen highscores gevonden!";
                         }
-
+     
                         // Sluit connectie
-                        $pdo = null;
+                        $database->sluitConnectie();
                     ?>
 
             </section>
