@@ -15,8 +15,34 @@
     <?php include "php/header.php"; ?>
 
     <main>
+        <?php 
+            // Include de database class
+            require_once "php/database.php";
 
-        <form method="POST" action="index.php" class="account_formulier" id="registratie_formulier" onsubmit="return isGeldigWachtwoord();">
+            // Check of het formulier is ingevuld
+            if (isset($_POST["submit"])) {
+                // Vang de gebruikersnaam & wachtwoord op zonder speciale characters
+                $gebruikersnaam = htmlspecialchars($_POST['gebruikersnaam']);
+                $wachtwoord = htmlspecialchars($_POST['wachtwoord']);
+
+                // Maak een object van de database class
+                $database = new Database();
+
+                // Probeer in te registreren
+                $registratieResult = $database->registreer($gebruikersnaam, $wachtwoord);
+
+                if ($registratieResult === true) {
+                    echo "Registratie succesvol";
+                } else {
+                    echo $registratieResult;
+                }
+
+                // Sluit de connectie
+                $database->sluitConnectie();
+            }
+        ?>
+    
+        <form method="POST" action="registratie.php" class="account_formulier" id="registratie_formulier" onsubmit="return isGeldigWachtwoord();">
             <label class="account_label_bold">Account aanmaken</label>
 
             <label for="gebruikersnaam">Gebruikersnaam</label>

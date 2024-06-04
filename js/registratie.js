@@ -20,6 +20,9 @@ function isWachtwoordZelfde() {
 // Functie om te kijken of het wachtwoord meer dan 8 characters heeft
 function isWachtwoordLang() {
     // Wachtwoord is minder dan 8 characters, of bevestig wachtwoord is minder dan 8 characters
+    console.log(wachtwoordValue.length);
+    console.log(bevestigWachtwoordValue.length);
+
     if (wachtwoordValue.length < 8 || bevestigWachtwoordValue.length < 8) {
         return false;
     }
@@ -29,6 +32,7 @@ function isWachtwoordLang() {
 
 // Functie om beide te combineren en het overzichtelijk te hebben
 function isGeldigWachtwoord() {
+    return true;
     if(!isWachtwoordLang()) {
         alert("Wachtwoord moet minimaal 8 tekens lang zijn!")
         return false;

@@ -70,5 +70,29 @@
                 return "Login gefaald, gebruikersnaam is niet gevonden";
             }
         }
+
+        public function registreer($gebruikersnaam, $wachtwoord) {
+            try {
+                // 2 tot de macht 12 = 4096 encrypties
+                $options = ["cost" => 12];
+
+                // hash het wachtwoord
+                $wachtwoord_encrypted = password_hash($wachtwoord, PASSWORD_BCRYPT, $options);
+
+                // bereid de sql query voor
+                $query = "INSERT INTO gebruikers (gebruikersnaam, wachtwoord) VALUES ('$gebruikersnaam', '$wachtwoord_encrypted')";
+
+                // Prepare de query
+                $statement = $this->pdo->prepare($query);
+
+                // Voer de query uit
+                $statement->execute();
+
+                return true;
+            } catch (PDOException $e) {
+                // handle errors
+                return "Foutmelding: " . $e->getMessage();
+            }
+        }
     }
 ?>
