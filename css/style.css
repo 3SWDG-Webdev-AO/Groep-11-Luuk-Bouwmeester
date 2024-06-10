@@ -360,9 +360,27 @@ section.game_container .hint_display {
 /* vrienden pagina */
 section.gebruikers_lijst {
     display: grid;
-    margin: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 10px;
+    grid-template-columns: repeat(auto-fit, 300px);
     gap: 20px;
+    justify-content: center;
+}
+
+section.gebruiker > a.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: rgb(70, 54, 47);
+    color: white;
+    text-decoration: none;
+    font-family: "Radio Canada Big", sans-serif;
+}
+
+section.gebruiker a.button:hover {
+    color: orange;
 }
 
 section.gebruiker {
@@ -421,7 +439,7 @@ section.vrienden_zoek input[type="text"] {
     font-family: "Titillium Web", sans-serif;
 }
 
-/* vriendne header button styles */
+/* vrienden header button styles */
 section.vrienden_button > a.button {
     margin-right: 5px;
 
