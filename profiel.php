@@ -8,6 +8,7 @@
     <meta name="keywords" content="pixel, playground, profiel">
     <title>Pixel Playground - Profiel</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/wachtwoord.js" defer></script>
 </head>
 
 <body>
@@ -36,17 +37,17 @@
             }
         ?>
 
-        <form method="POST" action="profiel.php" class="account_formulier">
+        <form method="POST" action="profiel.php" class="account_formulier"onsubmit="return isGeldigWachtwoord();">
             <label class="account_label_bold">Verander wachtwoord</label>
 
             <label for="oud_wachtwoord">Huidig wachtwoord</label>
             <input type="password" id="oud_wachtwoord" name="oud_wachtwoord" required>
 
             <label for="nieuw_wachtwoord">Nieuwe wachtword</label>
-            <input type="password" id="nieuw_wachtwoord" name="nieuw_wachtwoord" required>
+            <input type="password" id="wachtwoord" name="wachtwoord" required>
 
             <label for="bevestig_nieuw_wachtwoord">Bevestig nieuwe wachtwoord</label>
-            <input type="password" id="bevestig_nieuw_wachtwoord" name="bevestig_nieuw_wachtwoord" required>
+            <input type="password" id="bevestig_wachtwoord" name="bevestig_wachtwoord" required>
 
             <input type="submit" name="submit" value="Verander wachtwoord">
         </form>
