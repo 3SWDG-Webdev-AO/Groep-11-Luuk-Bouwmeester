@@ -1,16 +1,11 @@
 // Vang nodige elementen op
-const registratieFormulier = document.getElementById("registratie_formulier");
 const wachtwoordInput = document.getElementById("wachtwoord");
 const bevestigWachtwoordInput = document.getElementById("bevestig_wachtwoord");
-
-// Vang de value op
-const wachtwoordValue = wachtwoordInput.value;
-const bevestigWachtwoordValue = bevestigWachtwoordInput.value;
 
 // Functie om te checken of de 2 ingevulde wachtwoorden hetzelfde zijn
 function isWachtwoordZelfde() {
     // Wachtwoord komt niet overeen met het bevestig wachtwoord
-    if (wachtwoordValue !== bevestigWachtwoordValue) {
+    if (wachtwoordInput.value !== bevestigWachtwoordInput.value) {
         return false;
     }
 
@@ -20,7 +15,7 @@ function isWachtwoordZelfde() {
 // Functie om te kijken of het wachtwoord meer dan 8 characters heeft
 function isWachtwoordLang() {
     // Wachtwoord is minder dan 8 characters, of bevestig wachtwoord is minder dan 8 characters
-    if (wachtwoordValue.length < 8 || bevestigWachtwoordValue.length < 8) {
+    if (wachtwoordInput.value.length < 8 || bevestigWachtwoordInput.value.length < 8) {
         return false;
     }
 

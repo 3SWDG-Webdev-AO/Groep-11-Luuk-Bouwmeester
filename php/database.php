@@ -44,7 +44,7 @@
             return $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function login($gebruikersnaam, $wachtwoord) {
+        public function getLoginStatement($gebruikersnaam) {
             // Bereid de query voor
             $query = "SELECT * from gebruikers WHERE gebruikersnaam = '$gebruikersnaam'";
 
@@ -53,13 +53,40 @@
     
             // Voer de statement uit
             $statement->execute();
-    
-            // Controleer of we een resultaat hebben gevonden
-            if ($statement->rowCount() == 1) {
-                // Verwerk de resultaten
+        
+            // Return de statement zodat we die later kunnen gebruiken
+            return $statement;
+        }
+        
+        public function bestaatGebruiker($gebruikersnaam) {
+            try {
+                // Vang de login statement op
+                $statement = $this->getLoginStatement($gebruikersnaam);
+        
+                // Row count is groter dan 0, er is dus een resultaat en de gebruikersnaam bestaat
+                if ($statement->rowCount() > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                // Handle errors
+                return "Foutmelding: " . $e->getMessage();
+            }
+        }
+        
+        public function login($gebruikersnaam, $wachtwoord) {
+            // Vang de login statement op
+            $statement = $this->getLoginStatement($gebruikersnaam);
+        
+            // Check of de gebruiker bestaat
+            $gebruikerBestaat = $this->bestaatGebruiker($gebruikersnaam);
+        
+            if ($gebruikerBestaat === true) {
+                //Verwerk resultaten
                 $gebruiker = $statement->fetch(PDO::FETCH_ASSOC);
                 $wachtwoord_database = $gebruiker["wachtwoord"];
-    
+        
                 // Controleer of het wachtwoord overeenkomt
                 if (password_verify($wachtwoord, $wachtwoord_database)) {
                     return true;
@@ -68,6 +95,35 @@
                 }
             } else {
                 return "Login gefaald, gebruikersnaam is niet gevonden";
+            }
+        }
+
+        public function registreer($gebruikersnaam, $wachtwoord) {
+            // Controleer of de gebruiker al bestaat, als die al bestaat stop dan
+            if ($this->bestaatGebruiker($gebruikersnaam) === true) {
+                return "Registreren gefaald, de gebruikersnaam is al in gebruik";
+            }
+
+            try {
+                // 2 tot de macht 12 = 4096 encrypties
+                $options = ["cost" => 12];
+
+                // hash het wachtwoord
+                $wachtwoord_encrypted = password_hash($wachtwoord, PASSWORD_BCRYPT, $options);
+
+                // bereid de sql query voor
+                $query = "INSERT INTO gebruikers (gebruikersnaam, wachtwoord) VALUES ('$gebruikersnaam', '$wachtwoord_encrypted')";
+
+                // Prepare de query
+                $statement = $this->pdo->prepare($query);
+
+                // Voer de query uit
+                $statement->execute();
+
+                return true;
+            } catch (PDOException $e) {
+                // Handle errors
+                return "Foutmelding: " . $e->getMessage();
             }
         }
     }
