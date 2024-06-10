@@ -32,6 +32,7 @@
 
                 if ($loginResult === true) {
                     echo "Login succesvol";
+                    header("Location: profiel.php");
                 } else {
                     echo $loginResult;
                 }
