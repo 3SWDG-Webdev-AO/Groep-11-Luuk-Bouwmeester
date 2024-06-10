@@ -49,7 +49,7 @@
 
                 foreach($gebruikers as $gebruiker) {
                     echo "<section class='gebruiker'>";
-                    echo $gebruiker["gebruikersnaam"];
+                    echo "<h1><span style='color:white;'>" . $gebruiker["gebruikersnaam"] . "</span></h1>";
                     echo '<a href="#" class="button">Stuur vriendverzoek</a>';
 
                     echo "</section>";
