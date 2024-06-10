@@ -24,7 +24,7 @@
                 <p>Op onze website vind je diverse games, die hopelijk bij je passen.</p>
 
                 <p>Hier is een lijst van onze games die je nu gelijk kunt spelen.</p>
-                <a href="../login/index.php" class="button">Bekijk games</a>
+                <a href="games.php" class="button">Bekijk games</a>
             </section>
 
         </section>
