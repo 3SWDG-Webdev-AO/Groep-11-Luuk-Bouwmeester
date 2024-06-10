@@ -89,6 +89,11 @@
         
                 // Controleer of het wachtwoord overeenkomt
                 if (password_verify($wachtwoord, $wachtwoord_database)) {
+                    // Start de sessie en sla de gebruikersgegevens op
+                    session_start();
+                    $_SESSION["gebruikersnaam"] = $gebruiker["gebruikersnaam"];
+                    $_SESSION["id"] = $gebruiker["id"];
+
                     return true;
                 } else {
                     return "Login gefaald, wachtwoord is onjuist";
