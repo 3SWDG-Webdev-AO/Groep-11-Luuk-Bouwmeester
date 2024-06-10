@@ -7,7 +7,9 @@
         <a href="<?php echo "http://" . $_SERVER["HTTP_HOST"] . "/Groep-11-Luuk-Bouwmeester/"; ?>">Home</a>
 
         <?php
+            // Start de session, we starten dit in de header dus hij wordt active op elke pagina (omdat wij de header includen)
             session_start();
+            
             // Controleer of de gebruiker is ingelogd
             if (isset($_SESSION['gebruikersnaam']) && isset($_SESSION['id'])) {
                 // De gebruiker is ingelogd, laat de "Profiel" link zien

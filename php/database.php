@@ -89,8 +89,7 @@
         
                 // Controleer of het wachtwoord overeenkomt
                 if (password_verify($wachtwoord, $wachtwoord_database)) {
-                    // Start de sessie en sla de gebruikersgegevens op
-                    session_start();
+                    // Sla de gebruiker data op in de session
                     $_SESSION["gebruikersnaam"] = $gebruiker["gebruikersnaam"];
                     $_SESSION["id"] = $gebruiker["id"];
 
