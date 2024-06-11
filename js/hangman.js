@@ -123,8 +123,24 @@ function runHangMan(woordenLijst) {
     hintButton.addEventListener("click", () => {
         hintDisplay.textContent = betekenis;
     });
+
+    restartButton.addEventListener("click", () => {
+        // Reset alles
+        woordDisplay.textContent = "";
+        gameOverDisplay.textContent = "";
+        hintDisplay.textContent = "";
+        gokInput.value = "";
+        raadInput.value = "";
+        lettersOver = 0;
+        onjuisteGoks = 0;
+        geraadeLetters = [];
+        restartButton.style.display = "none";
+
+        // Vang een nieuw woord op
+        fetchWoordennLijst();
+    });
         
-    console.log(geselecteerdeWoord);
+    // console.log(geselecteerdeWoord);
 }
 
 fetchWoordennLijst();
