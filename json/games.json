@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Hangman",
+        "description": "Hangman is een klassiek taalspel waarbij spelers een woord moeten raden door letters te noemen. Met elke incorrecte letter wordt er een deel van een opgehangen man getekend. Het doel is om het woord te raden voordat de hele man is getekend.",
+        "img": "img/hangman.png",
+        "href": "hangman.php"
+    },
+    {
+        "name": "Andere game",
+        "description": "Beschrijving van andere game",
+        "img": "#",
+        "href": "#"
+    }
+]
