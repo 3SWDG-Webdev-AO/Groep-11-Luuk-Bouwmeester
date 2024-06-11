@@ -53,6 +53,12 @@
                     <span id="hint_display" class="hint_display"></span>
 
                 </section>
+
+                <section class="restart_game">
+
+                    <button id="restart_button" class="restart_button">Restart</button>
+
+                </section>
                 
             </section>
 

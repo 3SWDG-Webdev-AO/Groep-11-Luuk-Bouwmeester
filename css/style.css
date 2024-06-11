@@ -315,7 +315,7 @@ section.game_container .woord_display_section, section.game_container .game_over
     margin-bottom: 10px;
 }
 
-section.game_container .gok_letter, section.game_container .raad_woord, section.game_container .hint_woord {
+section.game_container .gok_letter, section.game_container .raad_woord, section.game_container .hint_woord, section.game_container .restart_game {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
@@ -336,7 +336,7 @@ section.game_container .input_field {
     font-family: "Titillium Web", sans-serif;
 }
 
-section.game_container .gok_button, section.game_container .raad_button, section.game_container .hint_button {
+section.game_container .gok_button, section.game_container .raad_button, section.game_container .hint_button, section.game_container .restart_button {
     display: inline-block;
     font-size: 18px;
     padding: 10px 20px;
@@ -345,6 +345,11 @@ section.game_container .gok_button, section.game_container .raad_button, section
     text-decoration: none;
     font-family: "Radio Canada Big", sans-serif;
     cursor: pointer;
+}
+
+section.game_container .restart_button {
+    display: none;
+    background-color: red;
 }
 
 section.game_container .gok_button:hover, section.game_container .raad_button:hover, section.game_container .hint_button:hover {

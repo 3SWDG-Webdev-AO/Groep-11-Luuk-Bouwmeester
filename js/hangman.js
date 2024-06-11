@@ -9,15 +9,17 @@ function fetchWoordennLijst() {
     });
 }
 
-function updateGameOver(gameOverDisplay, lettersOver, onjuisteGoks) {
+function updateGameOver(gameOverDisplay, restartButton, lettersOver, onjuisteGoks) {
     // Er zijn geen letters meer over, het woord is dus geraden, speler heeft gewonnen.
     if(lettersOver == 0) {
         gameOverDisplay.textContent = "Gewonnen";
+        restartButton.style.display = "block";  
     }
 
     // Als er meer dan 6 gokken fout zijn, is het woord niet gevonden, en dus hebben ze verloren
     else if(onjuisteGoks > 6) {
         gameOverDisplay.textContent = "Verloren";
+        restartButton.style.display = "block";  
     }
 }
 
@@ -51,6 +53,7 @@ function runHangMan(woordenLijst) {
     const raadInput = document.getElementById("raad_input");
     const raadButton = document.getElementById("raad_button");
     const hintButton = document.getElementById("hint_button");
+    const restartButton = document.getElementById("restart_button");
 
     // Event listener die wordt geroepen als je op de gok knop drukt.
     gokButton.addEventListener("click", () => {
@@ -100,7 +103,7 @@ function runHangMan(woordenLijst) {
             onjuisteGoks++;
         }
 
-        updateGameOver(gameOverDisplay, lettersOver, onjuisteGoks);
+        updateGameOver(gameOverDisplay, restartButton, lettersOver, onjuisteGoks);
     });
 
     raadButton.addEventListener("click", () => {
@@ -114,7 +117,7 @@ function runHangMan(woordenLijst) {
             onjuisteGoks++;
         }
 
-        updateGameOver(gameOverDisplay, lettersOver, onjuisteGoks);
+        updateGameOver(gameOverDisplay, restartButton, lettersOver, onjuisteGoks);
     });
 
     hintButton.addEventListener("click", () => {
