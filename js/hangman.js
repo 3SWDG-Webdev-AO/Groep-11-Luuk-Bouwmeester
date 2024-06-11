@@ -1,19 +1,24 @@
-function fetchWoordennLijst() {
-    // Vang onze woordenlijst json op
-    fetch("data/woordenlijst.json")
-        .then((response) => response.json())
-        .then((json) => {
+async function fetchWoordenLijst() {
+    try {
+        // Vang onze woordenlijst json op
+        const response = await fetch("data/woordenlijst.json");
+        const json = await response.json();
+
         // Nadat we dit hebben opgevangen, kunnen we onze hangman functie runnen
-        // HIer geven we als parameter de data van de json, wat dus de woordenlijst is
+        // Hier geven we als parameter de data van de json, wat dus de woordenlijst is
         runHangMan(json);
-    });
+    } catch (error) {
+        console.error("Error fetching woordenlijst:", error);
+    }
 }
 
 function updateGameOver(gameOverDisplay, restartButton, lettersOver, onjuisteGoks) {
     // Er zijn geen letters meer over, het woord is dus geraden, speler heeft gewonnen.
     if(lettersOver == 0) {
         gameOverDisplay.textContent = "Gewonnen";
-        restartButton.style.display = "block";  
+        restartButton.style.display = "block";
+        
+        // We kunnen nu dus ook een highscore toevoegen aan de database
     }
 
     // Als er meer dan 6 gokken fout zijn, is het woord niet gevonden, en dus hebben ze verloren
@@ -137,10 +142,10 @@ function runHangMan(woordenLijst) {
         restartButton.style.display = "none";
 
         // Vang een nieuw woord op
-        fetchWoordennLijst();
+        fetchWoordenLijst();
     });
         
     // console.log(geselecteerdeWoord);
 }
 
-fetchWoordennLijst();
+fetchWoordenLijst();
