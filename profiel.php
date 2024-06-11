@@ -15,68 +15,75 @@
     <?php include "php/header.php"; ?>
 
     <main>
-        <?php
-            // Controleer of de gebruiker is ingelogd
-            if (isset($_SESSION["gebruikersnaam"]) && isset($_SESSION["id"])) {
-                // Vang info op
-                $gebruikersnaam = $_SESSION["gebruikersnaam"];
-                $id = $_SESSION["id"];
+        <section class="profiel_main">
 
-                // Echo gebruiker
-                echo "Welkom, " . $gebruikersnaam . "!";
+            <?php
+                // Controleer of de gebruiker is ingelogd
+                if (isset($_SESSION["gebruikersnaam"]) && isset($_SESSION["id"])) {
+                    // Vang info op
+                    $gebruikersnaam = $_SESSION["gebruikersnaam"];
+                    $id = $_SESSION["id"];
 
-            
-            // Include de database class
-            require_once "php/database.php";
+                
+                    // Include de database class
+                    require_once "php/database.php";
 
-            // Check of het formulier is ingevuld
-            if (isset($_POST["submit"])) {
-                // Vang de gebruikersnaam & wachtwoord op zonder speciale characters
-                $oud_wachtwoord = htmlspecialchars($_POST['oud_wachtwoord']);
-                $nieuw_wachtwoord = htmlspecialchars($_POST['wachtwoord']);
+                    // Check of het formulier is ingevuld
+                    if (isset($_POST["submit"])) {
+                        // Vang de gebruikersnaam & wachtwoord op zonder speciale characters
+                        $oud_wachtwoord = htmlspecialchars($_POST['oud_wachtwoord']);
+                        $nieuw_wachtwoord = htmlspecialchars($_POST['wachtwoord']);
 
-                // Maak een object van de database class
-                $database = new Database();
+                        // Maak een object van de database class
+                        $database = new Database();
 
-                // Probeer in te loggen
-                $veranderWachtwoordResult = $database->veranderWachtwoord($gebruikersnaam, $oud_wachtwoord, $nieuw_wachtwoord);
+                        // Probeer in te loggen
+                        $veranderWachtwoordResult = $database->veranderWachtwoord($gebruikersnaam, $oud_wachtwoord, $nieuw_wachtwoord);
 
-                if ($veranderWachtwoordResult === true) {
-                    echo "Verander wachtwoord success";
+                        if ($veranderWachtwoordResult === true) {
+                            echo "Verander wachtwoord success";
+                        } else {
+                            echo $veranderWachtwoordResult;
+                        }
+
+                        // Sluit de connectie
+                        $database->sluitConnectie();
+                    }
+            ?>
+
+            <?php
                 } else {
-                    echo $veranderWachtwoordResult;
+                    // De gebruiker is niet ingelogd, terug naar de login pagina
+                    header("Location: login.php");
+                    exit;
                 }
+            ?>
 
-                // Sluit de connectie
-                $database->sluitConnectie();
-            }
-        ?>
+            <section class="profiel_details">
+                <h1>Account details</h1>
+                <label for="Gebruikersnaam">Gebruikersnaam</label>
+                <input type="text" id="Gebruikersnaam" name="Gebruikersnaam" value="<?php echo $gebruikersnaam; ?>" readonly>
 
-        <!-- Logout button -->
-        <a href="php/logout.php">Logout</a>
+                <form method="POST" action="profiel.php"onsubmit="return isGeldigWachtwoord();">
+                    <label class="account_label_bold">Verander wachtwoord</label>
+                    <br>
 
-        <?php
-            } else {
-                // De gebruiker is niet ingelogd, terug naar de login pagina
-                header("Location: login.php");
-                exit;
-            }
-        ?>
+                    <label for="oud_wachtwoord">Huidig wachtwoord</label>
+                    <input type="password" id="oud_wachtwoord" name="oud_wachtwoord" required>
 
-        <form method="POST" action="profiel.php" class="account_formulier"onsubmit="return isGeldigWachtwoord();">
-            <label class="account_label_bold">Verander wachtwoord</label>
+                    <label for="nieuw_wachtwoord">Nieuwe wachtword</label>
+                    <input type="password" id="wachtwoord" name="wachtwoord" required>
 
-            <label for="oud_wachtwoord">Huidig wachtwoord</label>
-            <input type="password" id="oud_wachtwoord" name="oud_wachtwoord" required>
+                    <label for="bevestig_nieuw_wachtwoord">Bevestig nieuwe wachtwoord</label>
+                    <input type="password" id="bevestig_wachtwoord" name="bevestig_wachtwoord" required>
 
-            <label for="nieuw_wachtwoord">Nieuwe wachtword</label>
-            <input type="password" id="wachtwoord" name="wachtwoord" required>
+                    <input type="submit" name="submit" value="Verander wachtwoord">
+                </form>
 
-            <label for="bevestig_nieuw_wachtwoord">Bevestig nieuwe wachtwoord</label>
-            <input type="password" id="bevestig_wachtwoord" name="bevestig_wachtwoord" required>
+                <a href="php/logout.php" class="button">Logout</a>
+            </section>
 
-            <input type="submit" name="submit" value="Verander wachtwoord">
-        </form>
+        </section>
     </main>
 
     <?php include "php/footer.php"; ?>
