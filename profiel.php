@@ -24,6 +24,32 @@
 
                 // Echo gebruiker
                 echo "Welkom, " . $gebruikersnaam . "!";
+
+            
+            // Include de database class
+            require_once "php/database.php";
+
+            // Check of het formulier is ingevuld
+            if (isset($_POST["submit"])) {
+                // Vang de gebruikersnaam & wachtwoord op zonder speciale characters
+                $oud_wachtwoord = htmlspecialchars($_POST['oud_wachtwoord']);
+                $nieuw_wachtwoord = htmlspecialchars($_POST['wachtwoord']);
+
+                // Maak een object van de database class
+                $database = new Database();
+
+                // Probeer in te loggen
+                $veranderWachtwoordResult = $database->veranderWachtwoord($gebruikersnaam, $oud_wachtwoord, $nieuw_wachtwoord);
+
+                if ($veranderWachtwoordResult === true) {
+                    echo "Verander wachtwoord success";
+                } else {
+                    echo $veranderWachtwoordResult;
+                }
+
+                // Sluit de connectie
+                $database->sluitConnectie();
+            }
         ?>
 
         <!-- Logout button -->

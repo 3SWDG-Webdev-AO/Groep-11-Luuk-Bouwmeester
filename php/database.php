@@ -112,10 +112,10 @@
                 // 2 tot de macht 12 = 4096 encrypties
                 $options = ["cost" => 12];
 
-                // hash het wachtwoord
+                // Hash het wachtwoord
                 $wachtwoord_encrypted = password_hash($wachtwoord, PASSWORD_BCRYPT, $options);
 
-                // bereid de sql query voor
+                // Bereid de sql query voor
                 $query = "INSERT INTO gebruikers (gebruikersnaam, wachtwoord) VALUES ('$gebruikersnaam', '$wachtwoord_encrypted')";
 
                 // Prepare de query
@@ -128,6 +128,42 @@
             } catch (PDOException $e) {
                 // Handle errors
                 return "Foutmelding: " . $e->getMessage();
+            }
+        }
+
+        public function veranderWachtwoord($gebruikersnaam, $oud_wachtwoord, $nieuw_wachtwoord) {
+            // Vang de login statement op
+            $statement = $this->getLoginStatement($gebruikersnaam);
+        
+            // Check of de gebruiker bestaat
+            $gebruikerBestaat = $this->bestaatGebruiker($gebruikersnaam);
+        
+            if ($gebruikerBestaat === true) {
+                //Verwerk resultaten
+                $gebruiker = $statement->fetch(PDO::FETCH_ASSOC);
+                $wachtwoord_database = $gebruiker["wachtwoord"];
+        
+                // Controleer of het wachtwoord overeenkomt
+                if (password_verify($oud_wachtwoord, $wachtwoord_database)) {
+                    // 2 tot de macht 12 = 4096 encrypties
+                    $options = ["cost" => 12];
+
+                    // Hash het wachtwoord
+                    $nieuwe_wachtwoord_encrypted = password_hash($nieuw_wachtwoord, PASSWORD_BCRYPT, $options);
+
+                    // Bereid de sql query voor
+                    $query = "UPDATE gebruikers SET wachtwoord = '$nieuwe_wachtwoord_encrypted' WHERE gebruikersnaam = '$gebruikersnaam'";
+
+                    // Prepare de query
+                    $statement = $this->pdo->prepare($query);
+
+                    // Voer de query uit
+                    $statement->execute();
+                } else {
+                    return "Wachtwoord veranderen gefaald, wachtwoord is onjuist";
+                }
+            } else {
+                return "Wachtwoord veranderen gefaald, gebruikersnaam is niet gevonden";
             }
         }
     }
