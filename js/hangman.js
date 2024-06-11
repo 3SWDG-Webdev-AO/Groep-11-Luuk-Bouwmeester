@@ -35,7 +35,7 @@ class HangmanGame {
     async fetchWoordenLijst() {
         try {
             // Vang onze woordenlijst json op
-            const response = await fetch("data/woordenlijst.json");
+            const response = await fetch("json/woordenlijst.json");
             const json = await response.json();
     
             // Nadat we dit hebben opgevangen, kunnen we onze hangman functie runnen

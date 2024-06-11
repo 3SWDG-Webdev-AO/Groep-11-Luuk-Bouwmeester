@@ -263,7 +263,7 @@ form.account_formulier input[type="submit"]:hover {
 }
 
 /* games pagina */
-section.games_overzicht {
+#games_overzicht {
     display: grid;
     margin: 20px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

@@ -8,6 +8,7 @@
     <meta name="keywords" content="pixel, playground, games">
     <title>Pixel Playground - Games</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/games.js" defer></script>
 </head>
 
 <body>
@@ -15,26 +16,19 @@
 
     <main>
 
-    <section class="games_overzicht">
-
-            <section class="game">
-
-                <h1>Hangman</h1>
-                <p>Hangman is een klassiek taalspel waarbij spelers een woord moeten raden door letters te noemen. Met elke incorrecte letter wordt er een deel van een opgehangen man getekend. Het doel is om het woord te raden voordat de hele man is getekend.</p>
-                <a href="hangman.php">
-                    <img src="img/hangman.png" alt="Afbeelding van de hangman game">
-                </a>
-                
-            </section>
-
-            <section class="game">
-
-                <h1>Voorbeeld titel van game</h1>
-                <p>Voorbeeld p van game</p>
-
-            </section>
-
+        <section id="games_overzicht">
         </section>
+
+        <template id="game_template">
+            <section class="game">
+                <h1 class="game_name"></h1>
+                <p class="game_description"></p>
+
+                <a id="game_ref" href="">
+                    <img id="game_img" alt="Afbeelding van de game">
+                </a>
+            </section>
+        </template>
 
     </main>
 
