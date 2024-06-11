@@ -44,6 +44,14 @@
             return $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function getHighScoresUser($gebruiker_id) {
+            $query = "SELECT * FROM highscores WHERE gebruiker_id = '$gebruiker_id' ORDER BY timestamp DESC";
+            
+            $result = $this->pdo->query($query);
+            
+            return $result->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function getLoginStatement($gebruikersnaam) {
             // Bereid de query voor
             $query = "SELECT * from gebruikers WHERE gebruikersnaam = '$gebruikersnaam'";

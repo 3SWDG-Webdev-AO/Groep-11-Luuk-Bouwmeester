@@ -458,7 +458,7 @@ section.vrienden_button a.button:hover {
 
 section.profiel_main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 20px;
     background-color: rgb(250, 105, 40);
     border: 1px solid #959595;
@@ -483,6 +483,7 @@ section.profiel_details {
     padding: 20px;
     border: 1px solid #959595;
     background-color: #f9f9f9;
+    max-height: 600px;
 }
 
 section.profiel_details h1 {
@@ -543,4 +544,13 @@ section.profiel_details .button {
 
 section.profiel_details .button:hover {
     color: #000000;
+}
+
+.profiel_main input[name="Gebruikersnaam"], input[name="ID"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 0.5rem 0;
 }

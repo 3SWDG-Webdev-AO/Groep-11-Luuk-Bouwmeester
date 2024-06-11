@@ -23,7 +23,6 @@
                     // Vang info op
                     $gebruikersnaam = $_SESSION["gebruikersnaam"];
                     $id = $_SESSION["id"];
-
                 
                     // Include de database class
                     require_once "php/database.php";
@@ -61,6 +60,10 @@
 
             <section class="profiel_details">
                 <h1>Account details</h1>
+
+                <label for="ID">ID</label>
+                <input type="text" id="ID" name="ID" value="<?php echo $id; ?>" readonly>
+
                 <label for="Gebruikersnaam">Gebruikersnaam</label>
                 <input type="text" id="Gebruikersnaam" name="Gebruikersnaam" value="<?php echo $gebruikersnaam; ?>" readonly>
 
@@ -82,6 +85,48 @@
 
                 <a href="php/logout.php" class="button">Logout</a>
             </section>
+
+            <section class="profiel_highscores">
+                <section class="high_scores">
+                    <section class="high_score_row">
+                        <p class="column">Game</p>
+                        <p class="column">Highscore</p>
+                        <p class="column">Datum</p>
+                    </section>
+                        <?php
+                            // Maak een object van de database class
+                            $database = new Database();
+
+                            $highscores = $database->getHighScoresUser($id);
+                            // Kijk of we wel high scores zijn
+                            if(count($highscores) > 0) {
+                                // Loop door alle highscores
+                                foreach($highscores as $highscore) {
+                                    $game_id = $highscore["game_id"];
+                                    $highscore_score = $highscore["highscore"];
+                                    $timestamp = $highscore["timestamp"];
+                                
+                                    echo '<section class="high_score_row">';
+                                    echo '<p class="column">' . $game_id . '</p>';
+                                    echo '<p class="column">' . $highscore_score . '</p>';
+                                    echo '<p class="column">' . $timestamp . '</p>';
+                                    echo '</section>';
+                                    echo '<hr>';
+                                }
+                            } else {
+                                echo "Geen highscores gevonden!";
+                            }
+                                                    
+                            // Sluit de connectie
+                            $database->sluitConnectie();
+                        ?>
+                    </section>
+                </section>
+
+            <section class="profiel_vrienden">
+
+            </section>
+
 
         </section>
     </main>
