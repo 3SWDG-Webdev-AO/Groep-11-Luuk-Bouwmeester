@@ -455,3 +455,102 @@ section.vrienden_button > a.button {
 section.vrienden_button a.button:hover {
     color: black;
 }
+
+section.profiel_main {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    background-color: rgb(250, 105, 40);
+    border: 1px solid #959595;
+}
+
+section.profiel_details {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #959595;
+    background-color: #f9f9f9;
+}
+
+section.profiel_details {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #959595;
+    background-color: #f9f9f9;
+    max-height: 600px;
+}
+
+section.profiel_details h1 {
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+section.profiel_details label {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+section.profiel_details input[type="text"], section.profiel_details input[type="password"], section.profiel_details textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #959595;
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+}
+
+section.profiel_details input[type="submit"] {
+    background-color: rgb(250, 105, 40);
+    color: white;
+    padding: 10px 20px;
+    width: 400px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Radio Canada Big", sans-serif;
+    font-size: 18px;
+}
+
+section.profiel_details select {
+    width: 400px;
+    cursor: pointer;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
+}
+    
+section.profiel_details input[type="submit"]:hover {
+    color: #000000;
+}
+
+section.profiel_details .button {
+    background-color: rgb(255, 6, 6);
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Radio Canada Big", sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+section.profiel_details .button:hover {
+    color: #000000;
+}
+
+.profiel_main input[name="Gebruikersnaam"], input[name="ID"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}

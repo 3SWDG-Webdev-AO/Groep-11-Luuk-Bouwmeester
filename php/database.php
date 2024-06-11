@@ -44,6 +44,14 @@
             return $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function getHighScoresUser($gebruiker_id) {
+            $query = "SELECT * FROM highscores WHERE gebruiker_id = '$gebruiker_id' ORDER BY timestamp DESC";
+            
+            $result = $this->pdo->query($query);
+            
+            return $result->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function getLoginStatement($gebruikersnaam) {
             // Bereid de query voor
             $query = "SELECT * from gebruikers WHERE gebruikersnaam = '$gebruikersnaam'";
@@ -89,6 +97,10 @@
         
                 // Controleer of het wachtwoord overeenkomt
                 if (password_verify($wachtwoord, $wachtwoord_database)) {
+                    // Sla de gebruiker data op in de session
+                    $_SESSION["gebruikersnaam"] = $gebruiker["gebruikersnaam"];
+                    $_SESSION["id"] = $gebruiker["id"];
+
                     return true;
                 } else {
                     return "Login gefaald, wachtwoord is onjuist";
@@ -108,10 +120,10 @@
                 // 2 tot de macht 12 = 4096 encrypties
                 $options = ["cost" => 12];
 
-                // hash het wachtwoord
+                // Hash het wachtwoord
                 $wachtwoord_encrypted = password_hash($wachtwoord, PASSWORD_BCRYPT, $options);
 
-                // bereid de sql query voor
+                // Bereid de sql query voor
                 $query = "INSERT INTO gebruikers (gebruikersnaam, wachtwoord) VALUES ('$gebruikersnaam', '$wachtwoord_encrypted')";
 
                 // Prepare de query
@@ -124,6 +136,42 @@
             } catch (PDOException $e) {
                 // Handle errors
                 return "Foutmelding: " . $e->getMessage();
+            }
+        }
+
+        public function veranderWachtwoord($gebruikersnaam, $oud_wachtwoord, $nieuw_wachtwoord) {
+            // Vang de login statement op
+            $statement = $this->getLoginStatement($gebruikersnaam);
+        
+            // Check of de gebruiker bestaat
+            $gebruikerBestaat = $this->bestaatGebruiker($gebruikersnaam);
+        
+            if ($gebruikerBestaat === true) {
+                //Verwerk resultaten
+                $gebruiker = $statement->fetch(PDO::FETCH_ASSOC);
+                $wachtwoord_database = $gebruiker["wachtwoord"];
+        
+                // Controleer of het wachtwoord overeenkomt
+                if (password_verify($oud_wachtwoord, $wachtwoord_database)) {
+                    // 2 tot de macht 12 = 4096 encrypties
+                    $options = ["cost" => 12];
+
+                    // Hash het wachtwoord
+                    $nieuwe_wachtwoord_encrypted = password_hash($nieuw_wachtwoord, PASSWORD_BCRYPT, $options);
+
+                    // Bereid de sql query voor
+                    $query = "UPDATE gebruikers SET wachtwoord = '$nieuwe_wachtwoord_encrypted' WHERE gebruikersnaam = '$gebruikersnaam'";
+
+                    // Prepare de query
+                    $statement = $this->pdo->prepare($query);
+
+                    // Voer de query uit
+                    $statement->execute();
+                } else {
+                    return "Wachtwoord veranderen gefaald, wachtwoord is onjuist";
+                }
+            } else {
+                return "Wachtwoord veranderen gefaald, gebruikersnaam is niet gevonden";
             }
         }
     }
