@@ -174,5 +174,24 @@
                 return "Wachtwoord veranderen gefaald, gebruikersnaam is niet gevonden";
             }
         }
+        
+        public function saveHighscore($game_id, $gebruiker_id, $highscore) {
+            try {
+                // Bereid de query voor
+                $query = "INSERT INTO highscores (game_id, gebruiker_id, highscore, timestamp) VALUES ('$game_id', '$gebruiker_id', '$highscore', NOW())";
+                        
+                // Prepare de query
+                $statement = $this->pdo->prepare($query);
+        
+                // Voer de query uit
+                $statement->execute();
+        
+                // Success
+                return true;
+            } catch (PDOException $e) {
+                // Handle errors
+                return "Foutmelding: " . $e->getMessage();
+            }
+        }
     }
 ?>
