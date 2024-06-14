@@ -179,7 +179,7 @@
             try {
                 // Bereid de query voor
                 $query = "INSERT INTO highscores (game_id, gebruiker_id, highscore, timestamp) VALUES ('$game_id', '$gebruiker_id', '$highscore', NOW())";
-                        
+
                 // Prepare de query
                 $statement = $this->pdo->prepare($query);
         
@@ -188,6 +188,29 @@
         
                 // Success
                 return true;
+            } catch (PDOException $e) {
+                // Handle errors
+                return "Foutmelding: " . $e->getMessage();
+            }
+        }
+
+        public function deleteGebruiker($gebruikersnaam, $gebruiker_id) {
+            try {
+                // Bereid de query voor
+                $query = "DELETE FROM gebruikers WHERE gebruikersnaam = '$gebruikersnaam' AND WHERE gebruiker_id = '$gebruiker_id";
+        
+                // Prepare de query
+                $statement = $this->pdo->prepare($query);
+        
+                // Voer de query uit
+                $statement->execute();
+        
+                // Controleer of er een rij is verwijderd
+                if ($statement->rowCount() > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
             } catch (PDOException $e) {
                 // Handle errors
                 return "Foutmelding: " . $e->getMessage();
