@@ -8,7 +8,7 @@
     <meta name="keywords" content="pixel, playground, registreer">
     <title>Pixel Playground - Registratie</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/wachtwoord.js" defer></script>
+    <script src="js/account.js" defer></script>
 </head>
 
 <body>

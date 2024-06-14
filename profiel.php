@@ -8,7 +8,7 @@
     <meta name="keywords" content="pixel, playground, profiel">
     <title>Pixel Playground - Profiel</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/wachtwoord.js" defer></script>
+    <script src="js/account.js" defer></script>
 </head>
 
 <body>
@@ -84,6 +84,7 @@
                 </form>
 
                 <a href="php/logout.php" class="button">Logout</a>
+                <a href="#" id="verwijder_account" class="button">Verwijder account</a>
             </section>
 
             <section class="profiel_highscores">
