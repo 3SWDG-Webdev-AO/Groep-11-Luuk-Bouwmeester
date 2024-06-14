@@ -47,13 +47,13 @@ if(verwijderAccountButton) {
         if (confirmed) {
             // Fetch de verwijder account php
             fetch("php/verwijder_account.php", {
-                method: 'POST',
+                method: "POST"
             })
             .then(response => {
             // Response is ok, ga verder
             if (response.ok) {
                 // Alert dat de account is verwijderd
-                alert("Je account is verwijderd");
+                alert("Je account is successvol verwijderd!");
 
                 // Stuur terug naar de home pagina
                 window.location.href = "index.php";

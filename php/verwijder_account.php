@@ -11,11 +11,10 @@
 
         // Verwijder de gebruiker van de database
         $deletedGebruiker = $database->deleteGebruiker($_SESSION['gebruikersnaam'], $_SESSION['id']);
-    
         // Check of het gelukt is en return een response code
         if ($deletedGebruiker) {
             http_response_code(200);
-            echo "Gebruiker verwijderd";
+            echo "Success: Gebruiker verwijderd";
         } else {
             http_response_code(500);
             echo "Error: verwijderen van gebruiker niet gelukt";

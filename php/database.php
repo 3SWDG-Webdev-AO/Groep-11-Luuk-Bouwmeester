@@ -196,9 +196,10 @@
 
         public function deleteGebruiker($gebruikersnaam, $gebruiker_id) {
             try {
+                echo "<script>alert('gebruikersnaam: " . $gebruikersnaam . "\\ngebruiker_id: " . $gebruiker_id . "');</script>";
                 // Bereid de query voor
-                $query = "DELETE FROM gebruikers WHERE gebruikersnaam = '$gebruikersnaam' AND WHERE gebruiker_id = '$gebruiker_id";
-        
+                $query = "DELETE FROM gebruikers WHERE gebruikersnaam = '$gebruikersnaam' AND id = '$gebruiker_id'";
+
                 // Prepare de query
                 $statement = $this->pdo->prepare($query);
         
