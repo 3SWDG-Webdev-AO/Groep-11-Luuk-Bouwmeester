@@ -38,3 +38,35 @@ function isGeldigWachtwoord() {
     return true;
 }
 
+
+if(verwijderAccountButton) {
+    verwijderAccountButton.addEventListener("click", function() {
+        // Confirm of ze het zeker weten, dit is een destructive action
+        const confirmed = confirm("Weet je zeker dat je je account wilt verwijderen?");
+
+        if (confirmed) {
+            // Fetch de verwijder account php
+            fetch("php/verwijder_account.php", {
+                method: 'POST',
+            })
+            .then(response => {
+            // Response is ok, ga verder
+            if (response.ok) {
+                // Alert dat de account is verwijderd
+                alert("Je account is verwijderd");
+
+                // Stuur terug naar de home pagina
+                window.location.href = "index.php";
+            // Er is iets misgegaan, maak dit duidelijk
+            } else {
+                alert("Er is een fout opgetreden bij het verwijderen van je account.");
+            }
+            })
+            // Catch eventuele andere errors
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Er is een fout opgetreden");
+            });
+        }
+    });
+}
