@@ -1,6 +1,7 @@
 // Vang nodige elementen op
 const wachtwoordInput = document.getElementById("wachtwoord");
 const bevestigWachtwoordInput = document.getElementById("bevestig_wachtwoord");
+const verwijderAccountButton = document.getElementById("verwijder_account");
 
 // Functie om te checken of de 2 ingevulde wachtwoorden hetzelfde zijn
 function isWachtwoordZelfde() {
@@ -36,3 +37,4 @@ function isGeldigWachtwoord() {
 
     return true;
 }
+
